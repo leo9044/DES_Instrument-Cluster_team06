@@ -13,7 +13,7 @@
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/DES_Instrument-Cluster.git
+git clone https://github.com/leo9044/DES_Instrument-Cluster.git
 cd DES_Instrument-Cluster
 ```
 
