@@ -13,8 +13,8 @@
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/leo9044/DES_Instrument-Cluster.git
-cd DES_Instrument-Cluster
+git clone https://github.com/leo9044/DES_Instrument-Cluster_team06.git
+cd DES_Instrument-Cluster_team06
 ```
 
 #### 2. Create Virtual Environment
