@@ -6,10 +6,10 @@ CAN 통신 테스트 스크립트 - 핵심 기능만 포함
 import sys
 import time
 import serial
-from pathlib import Path
+import os
 
-# 프로젝트 루트를 Python 경로에 추가
-sys.path.append(str(Path(__file__).parent / "app" / "src"))
+# 프로젝트 루트 경로 추가 (더 간단한 방법)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'app', 'src'))
 
 from can_interface import CANInterface
 
