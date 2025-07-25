@@ -136,7 +136,14 @@ main() {
                 ;;
             3)
                 print_status "실시간 속도 모니터링 실행 중..."
-                python real_time_speed_monitor.py
+                cd test
+                python -c "
+import sys
+sys.path.append('../app/src')
+from test_can import test_real_time_monitoring
+test_real_time_monitoring()
+"
+                cd ..
                 ;;
             4)
                 print_status "컨트롤 패드 테스트 실행 중..."
