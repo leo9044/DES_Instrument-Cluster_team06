@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/qt/qml/Design/">
+    <file alias="Constants.qml">/home/siwoo/Design/Design/Constants.qml</file>
+    <file alias="EventListModel.qml">/home/siwoo/Design/Design/EventListModel.qml</file>
+    <file alias="EventListSimulator.qml">/home/siwoo/Design/Design/EventListSimulator.qml</file>
+  </qresource>
+</RCC>
+

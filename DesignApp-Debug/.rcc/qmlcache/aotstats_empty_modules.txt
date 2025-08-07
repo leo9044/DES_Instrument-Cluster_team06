@@ -1,0 +1,4 @@
+QtQuick.Studio.Effects(QuickStudioEffects)
+QtQuick.Studio.EventSimulator(QuickStudioEventSimulator)
+QtQuick.Studio.EventSystem(QuickStudioEventSystem)
+QtQuick.Studio.Application(QuickStudioApplication)

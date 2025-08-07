@@ -1,0 +1,14 @@
+-I
+/home/siwoo/DesignApp-Debug/qml
+-I
+/home/siwoo/DesignApp-Debug/qml
+-I
+/home/siwoo/Qt/6.9.1/gcc_64/qml
+--resource
+/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/designeffects/.qt/rcc/qmake_QtQuick_Studio_DesignEffects.qrc
+--resource
+/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/designeffects/.qt/rcc/QuickStudioDesignEffects_raw_qml_0.qrc
+--resource
+/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/designeffects/.qt/rcc/designeffectsshaders.qrc
+--module
+QtQuick.Studio.DesignEffects

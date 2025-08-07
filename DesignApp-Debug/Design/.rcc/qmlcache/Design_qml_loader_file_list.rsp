@@ -1,0 +1,7 @@
+--resource
+/home/siwoo/DesignApp-Debug/Design/.qt/rcc/qmake_Design.qrc
+--resource
+/home/siwoo/DesignApp-Debug/Design/.qt/rcc/Design_raw_qml_0.qrc
+/qt/qml/Design/Constants.qml
+/qt/qml/Design/EventListModel.qml
+/qt/qml/Design/EventListSimulator.qml

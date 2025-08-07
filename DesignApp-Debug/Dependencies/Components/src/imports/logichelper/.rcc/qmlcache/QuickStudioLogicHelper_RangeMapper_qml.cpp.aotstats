@@ -1,0 +1,20 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 335,
+                        "errorMessage": "",
+                        "functionName": "output",
+                        "line": 90
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/logichelper/RangeMapper.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.LogicHelper(QuickStudioLogicHelper)"
+    }
+]

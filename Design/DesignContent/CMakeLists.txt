@@ -9,16 +9,16 @@ qt6_add_qml_module(DesignContent
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
-        "Screen01Form.ui.qml"
         "Screen01.qml"
+        "Screen01Form.ui.qml"
         "App.qml"
     RESOURCES
-        "images/GaugeSpeedometer_Ticks1.png"
-        "images/GaugeSpeedometer_Ticks2.png"
-        "images/BottomPanel.png"
         "images/Gauge_Speed.png"
+        "images/GaugeSpeedometer_Ticks2.png"
         "images/gaugeNeedleBig.png"
+        "images/GaugeSpeedometer_Ticks1.png"
         "images/Battery_white.png"
+        "images/BottomPanel.png"
 )
 
 

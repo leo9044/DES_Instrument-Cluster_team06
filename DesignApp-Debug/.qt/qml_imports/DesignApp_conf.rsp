@@ -1,0 +1,11 @@
+-rootPath
+/home/siwoo/Design
+-cmake-output
+-output-file
+/home/siwoo/DesignApp-Debug/.qt/qml_imports/DesignApp_conf.cmake
+-importPath
+/home/siwoo/DesignApp-Debug/qml
+-importPath
+/home/siwoo/Qt/6.9.1/gcc_64/qml
+-qrcFiles
+/home/siwoo/DesignApp-Debug/.qt/rcc/configuration.qrc

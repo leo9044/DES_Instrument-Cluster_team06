@@ -1,0 +1,244 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 29,
+                        "durationMicroseconds": 93,
+                        "errorMessage": "",
+                        "functionName": "joinStyle",
+                        "line": 170
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "capStyle",
+                        "line": 176
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "strokeStyle",
+                        "line": 182
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 53,
+                        "durationMicroseconds": 81,
+                        "errorMessage": "",
+                        "functionName": "__preferredRendererTypeAvailable",
+                        "line": 225
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 42,
+                        "durationMicroseconds": 126,
+                        "errorMessage": "",
+                        "functionName": "__curveRendererActive",
+                        "line": 226
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "onWidthChanged",
+                        "line": 253
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "onHeightChanged",
+                        "line": 254
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "onCountChanged",
+                        "line": 255
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "onRadiusChanged",
+                        "line": 256
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 38,
+                        "errorMessage": "",
+                        "functionName": "onRatioChanged",
+                        "line": 257
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "__centerX",
+                        "line": 267
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 30,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "",
+                        "functionName": "__centerY",
+                        "line": 268
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 5,
+                        "durationMicroseconds": 194,
+                        "errorMessage": "",
+                        "functionName": "constructPolygon",
+                        "line": 280
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "toRadians",
+                        "line": 289
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "toDegrees",
+                        "line": 293
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 1104,
+                        "errorMessage": "function without return type annotation returns QVariantList. This may prevent proper compilation to Cpp.",
+                        "functionName": "getPoints",
+                        "line": 297
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 1244,
+                        "errorMessage": "Cannot load property sideCount from .",
+                        "functionName": "constructPolygonPath",
+                        "line": 328
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "wrapIndex",
+                        "line": 351
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 4260,
+                        "errorMessage": "Cannot load property sideCount from .",
+                        "functionName": "constructRoundedPolygonPath",
+                        "line": 355
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 588,
+                        "errorMessage": "Cannot generate efficient code for LoadElement with non-numeric argument",
+                        "functionName": "clearPathElements",
+                        "line": 404
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 97,
+                        "errorMessage": "",
+                        "functionName": "enabled",
+                        "line": 229
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 19,
+                        "durationMicroseconds": 88,
+                        "errorMessage": "",
+                        "functionName": "smooth",
+                        "line": 230
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 123,
+                        "errorMessage": "",
+                        "functionName": "samples",
+                        "line": 231
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 30,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 236
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 26,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "margins",
+                        "line": 237
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 19,
+                        "durationMicroseconds": 49,
+                        "errorMessage": "",
+                        "functionName": "capStyle",
+                        "line": 243
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 40,
+                        "errorMessage": "",
+                        "functionName": "strokeStyle",
+                        "line": 244
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 39,
+                        "errorMessage": "",
+                        "functionName": "joinStyle",
+                        "line": 245
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 250,
+                        "errorMessage": "",
+                        "functionName": "onCompleted",
+                        "line": 259
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/components/StarItem.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.Components(QuickStudioComponents)"
+    }
+]

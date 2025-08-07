@@ -1,0 +1,28 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 34,
+                        "durationMicroseconds": 191,
+                        "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method font, returning QVariant -> QFont stored as QVariant",
+                        "functionName": "font",
+                        "line": 10
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 123,
+                        "errorMessage": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method font, returning QVariant -> QFont stored as QVariant",
+                        "functionName": "largeFont",
+                        "line": 15
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Design/Constants.qml"
+            }
+        ],
+        "moduleId": "Design(Design)"
+    }
+]

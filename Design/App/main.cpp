@@ -1,31 +1,32 @@
-// Copyright (C) 2024 The Qt Company Ltd.
-// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
-
-#include <QApplication>
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
-#include "autogen/environment.h"
+#include <QApplication>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QtQml>  // 이게 있어야 qmlRegisterSingletonType 사용 가능
 
 int main(int argc, char *argv[])
 {
-    set_qt_environment();
-    QApplication app(argc, argv);
-
+    QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-    const QUrl url(mainQmlFile);
-    QObject::connect(
-                &engine, &QQmlApplicationEngine::objectCreated, &app,
-                [url](QObject *obj, const QUrl &objUrl) {
-        if (!obj && url == objUrl)
-            QCoreApplication::exit(-1);
-    }, Qt::QueuedConnection);
+    
+    // QML import path 추가
+    engine.addImportPath("qrc:/");
+    qDebug() << "Import path added: qrc:/";
 
-    engine.addImportPath(QCoreApplication::applicationDirPath() + "/qml");
-    engine.addImportPath(":/");
+    // Constants.qml 등록
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/Design/Constants.qml")),
+                              "Design", 1, 0, "Constants");
+
+    // App.qml 로딩
+    const QUrl url(QStringLiteral("qrc:/DesignContent/App.qml"));
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
+                     &app, [url](QObject *obj, const QUrl &objUrl) {
+                         if (!obj && url == objUrl)
+                             QCoreApplication::exit(-1);
+                     }, Qt::QueuedConnection);
+
     engine.load(url);
-
-    if (engine.rootObjects().isEmpty())
-        return -1;
 
     return app.exec();
 }

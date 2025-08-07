@@ -1,0 +1,340 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 119,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 47
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 13,
+                        "durationMicroseconds": 48,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 48
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 214,
+                        "errorMessage": "Cannot generate efficient code for call to untyped JavaScript function",
+                        "functionName": "clamp",
+                        "line": 52
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 38,
+                        "durationMicroseconds": 132,
+                        "errorMessage": "",
+                        "functionName": "effectBoundingBox",
+                        "line": 59
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 5,
+                        "durationMicroseconds": 1310,
+                        "errorMessage": "Instruction \"generate_CmpInstanceOf\" not implemented",
+                        "functionName": "calculateBoundingBox",
+                        "line": 61
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 28,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "onCompleted",
+                        "line": 50
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 18,
+                        "durationMicroseconds": 43,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 88
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 106,
+                        "errorMessage": "",
+                        "functionName": "radius",
+                        "line": 89
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "source",
+                        "line": 91
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 153,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 93
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 12,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 94
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 16,
+                        "durationMicroseconds": 53,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 100
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 48,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 101
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 29,
+                        "errorMessage": "",
+                        "functionName": "sourceItem",
+                        "line": 102
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 55,
+                        "errorMessage": "",
+                        "functionName": "sourceRect",
+                        "line": 103
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 50,
+                        "errorMessage": "",
+                        "functionName": "hideSource",
+                        "line": 104
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 109
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 187,
+                        "errorMessage": "",
+                        "functionName": "visible",
+                        "line": 112
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 34,
+                        "errorMessage": "",
+                        "functionName": "source",
+                        "line": 116
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 32,
+                        "errorMessage": "",
+                        "functionName": "background",
+                        "line": 118
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 104,
+                        "errorMessage": "",
+                        "functionName": "radius",
+                        "line": 119
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 35,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 125
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 21,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 126
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 25,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "sourceItem",
+                        "line": 127
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 20,
+                        "durationMicroseconds": 42,
+                        "errorMessage": "",
+                        "functionName": "model",
+                        "line": 134
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "source",
+                        "line": 144
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 43,
+                        "durationMicroseconds": 26,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "horizontalOffset",
+                        "line": 146
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 41,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "verticalOffset",
+                        "line": 147
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "spread",
+                        "line": 148
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 8,
+                        "errorMessage": "Cannot load property color from (component in /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml)::modelData with type QVariant.",
+                        "functionName": "color",
+                        "line": 149
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "radius",
+                        "line": 150
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 37,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Cannot load property showBehind from (component in /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml)::modelData with type QVariant.",
+                        "functionName": "showBehind",
+                        "line": 151
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 34,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Cannot load property visible from (component in /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml)::modelData with type QVariant.",
+                        "functionName": "visible",
+                        "line": 152
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 44,
+                        "durationMicroseconds": 22,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "onGeometryChanged",
+                        "line": 154
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 17,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "source",
+                        "line": 163
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 43,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "horizontalOffset",
+                        "line": 165
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 41,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "verticalOffset",
+                        "line": 166
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "spread",
+                        "line": 167
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 7,
+                        "errorMessage": "Cannot load property color from (component in /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml)::modelData with type QVariant.",
+                        "functionName": "color",
+                        "line": 168
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 33,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "radius",
+                        "line": 169
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 34,
+                        "durationMicroseconds": 6,
+                        "errorMessage": "Cannot load property visible from (component in /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml)::modelData with type QVariant.",
+                        "functionName": "visible",
+                        "line": 170
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffectPrivate.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.DesignEffects(QuickStudioDesignEffects)"
+    }
+]

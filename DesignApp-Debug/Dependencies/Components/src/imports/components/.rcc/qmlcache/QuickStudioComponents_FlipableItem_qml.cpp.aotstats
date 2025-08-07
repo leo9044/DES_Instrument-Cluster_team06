@@ -1,0 +1,100 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 24,
+                        "durationMicroseconds": 786,
+                        "errorMessage": "Cannot generate efficient code for incomparable types void and conversion to QVariant",
+                        "functionName": "onChildrenChanged",
+                        "line": 152
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 54,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 132
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 16,
+                        "errorMessage": "Cannot access value for name opacityFront",
+                        "functionName": "value",
+                        "line": 133
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 15,
+                        "durationMicroseconds": 101,
+                        "errorMessage": "Cannot generate efficient code for incomparable types void and QQuickFlipable::front with type QQuickItem (stored as QObject)",
+                        "functionName": "when",
+                        "line": 135
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 41,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 139
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 16,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name opacityBack",
+                        "functionName": "value",
+                        "line": 140
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 15,
+                        "durationMicroseconds": 82,
+                        "errorMessage": "Cannot generate efficient code for incomparable types void and QQuickFlipable::back with type QQuickItem (stored as QObject)",
+                        "functionName": "when",
+                        "line": 142
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 19,
+                        "durationMicroseconds": 64,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 164
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 19,
+                        "durationMicroseconds": 59,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 165
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 100,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 166
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 17,
+                        "durationMicroseconds": 90,
+                        "errorMessage": "",
+                        "functionName": "y",
+                        "line": 167
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/components/FlipableItem.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.Components(QuickStudioComponents)"
+    }
+]

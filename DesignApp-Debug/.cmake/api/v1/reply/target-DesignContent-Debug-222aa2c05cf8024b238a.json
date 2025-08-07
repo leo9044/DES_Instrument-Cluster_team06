@@ -1,0 +1,683 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "DesignContent/libDesignContent.a"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_qt_internal_add_library",
+			"qt6_add_library",
+			"qt_add_library",
+			"add_dependencies",
+			"_qt_internal_qml_copy_files_to_build_dir",
+			"qt6_target_qml_sources",
+			"qt6_add_qml_module",
+			"target_link_libraries",
+			"target_include_directories",
+			"_qt_internal_qml_type_registration",
+			"target_sources",
+			"qt6_extract_metatypes",
+			"__qt_propagate_generated_resource",
+			"_qt_internal_process_resource",
+			"qt6_add_resources",
+			"_qt_internal_target_enable_qmlcachegen",
+			"_qt_internal_expose_deferred_files_to_ide",
+			"qt6_finalize_target"
+		],
+		"files" : 
+		[
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"DesignContent/CMakeLists.txt",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:787:EVAL"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 2804,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 2692,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2779,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 916,
+				"parent" : 5
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 3497,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 3503,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 9
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 596,
+				"parent" : 5
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 796,
+				"parent" : 5
+			},
+			{
+				"command" : 9,
+				"file" : 2,
+				"line" : 3904,
+				"parent" : 12
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 3704,
+				"parent" : 12
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1486,
+				"parent" : 14
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3870,
+				"parent" : 12
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 850,
+				"parent" : 5
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 17
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 18
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 19
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3205,
+				"parent" : 6
+			},
+			{
+				"command" : 16,
+				"file" : 2,
+				"line" : 3342,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 1696,
+				"parent" : 22
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3398,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3205,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3398,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3205,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3398,
+				"parent" : 6
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 3519,
+				"parent" : 6
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 29
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 30
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 31
+			},
+			{
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
+			},
+			{
+				"command" : 18,
+				"file" : 3,
+				"line" : 1,
+				"parent" : 33
+			},
+			{
+				"command" : 17,
+				"file" : 0,
+				"line" : 812,
+				"parent" : 34
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2197,
+				"parent" : 35
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 11,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_QML_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "/home/siwoo/DesignApp-Debug/DesignContent"
+				},
+				{
+					"path" : "/home/siwoo/Design/DesignContent"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "/home/siwoo/DesignApp-Debug/DesignContent/DesignContent_autogen/include"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1/QtQml"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1/QtCore"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtNetwork"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				3,
+				5,
+				6,
+				8,
+				10,
+				11
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 8,
+			"id" : "DesignContent_copy_qml::@7f5ed92e676c9b53cdb8"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "DesignContent_copy_res::@7f5ed92e676c9b53cdb8"
+		},
+		{
+			"id" : "DesignContent_autogen_timestamp_deps::@7f5ed92e676c9b53cdb8"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "DesignContent_autogen::@7f5ed92e676c9b53cdb8"
+		}
+	],
+	"id" : "DesignContent::@7f5ed92e676c9b53cdb8",
+	"name" : "DesignContent",
+	"nameOnDisk" : "libDesignContent.a",
+	"paths" : 
+	{
+		"build" : "DesignContent",
+		"source" : "DesignContent"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				5,
+				6,
+				8,
+				10,
+				11,
+				12,
+				13,
+				14,
+				21
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				4,
+				7,
+				9
+			]
+		},
+		{
+			"name" : "Resources",
+			"sourceIndexes" : 
+			[
+				15,
+				16,
+				17,
+				18,
+				19,
+				20
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				33,
+				34,
+				35
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/DesignContent_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 15,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/meta_types/qt6designcontent_debug_metatypes.json.gen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 16,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/designcontent_qmltyperegistrations.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 20,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qrc_qmake_DesignContent.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 21,
+			"path" : "DesignContent/Screen01.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 23,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_qmlcache_loader.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 24,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_Screen01_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 25,
+			"path" : "DesignContent/Screen01Form.ui.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 26,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_Screen01Form.ui_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 27,
+			"path" : "DesignContent/App.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 28,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_App_qml.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 32,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qrc_DesignContent_raw_qml_0.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 36,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qmake_DesignContent.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 36,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/qml/DesignContent/qmldir",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 36,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/DesignContent_raw_qml_0.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/Gauge_Speed.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/GaugeSpeedometer_Ticks2.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/gaugeNeedleBig.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/GaugeSpeedometer_Ticks1.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/Battery_white.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 36,
+			"path" : "DesignContent/images/BottomPanel.png",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/DesignContent_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/meta_types/qt6designcontent_debug_metatypes.json.gen.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/designcontent_qmltyperegistrations.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qrc_qmake_DesignContent.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_qmlcache_loader.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_Screen01_qml.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_Screen01Form.ui_qml.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.rcc/qmlcache/DesignContent_App_qml.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qrc_DesignContent_raw_qml_0.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/DesignContent_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/meta_types/DesignContent_json_file_list.txt.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/DesignContent/meta_types/qt6designcontent_debug_metatypes.json.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6qml_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6core_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6network_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

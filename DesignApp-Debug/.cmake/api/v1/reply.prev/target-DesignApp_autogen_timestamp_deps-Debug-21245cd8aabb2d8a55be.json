@@ -1,0 +1,87 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "DesignApp_qmlimportscan::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "DesignContentplugin::@7f5ed92e676c9b53cdb8"
+		},
+		{
+			"id" : "QuickStudioComponentsplugin::@3d938961523fdd6c1a27"
+		},
+		{
+			"id" : "QuickStudioEventSimulatorplugin::@9e8e581b12af718262a4"
+		},
+		{
+			"id" : "QuickStudioEventSystemplugin::@7abcc90e1fb5c1ae319b"
+		},
+		{
+			"id" : "QuickStudioApplicationplugin::@f9460591756501d20fea"
+		},
+		{
+			"id" : "QuickStudioUtilsplugin::@cff03bf3820f915d6cea"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "DesignApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "DesignApp_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/CMakeFiles/DesignApp_autogen_timestamp_deps",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/CMakeFiles/DesignApp_autogen_timestamp_deps.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

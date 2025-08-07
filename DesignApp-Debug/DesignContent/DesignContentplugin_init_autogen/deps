@@ -1,0 +1,10 @@
+DesignContentplugin_init_autogen/timestamp: \
+	/home/siwoo/Design/DesignContent/CMakeLists.txt \
+	/home/siwoo/DesignApp-Debug/DesignContent/DesignContentplugin_DesignContentPlugin_in.cpp \
+	/home/siwoo/DesignApp-Debug/DesignContent/DesignContentplugin_init.cpp \
+	/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in \
+	/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreResourceInit.in.cpp \
+	/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlModuleDirMappingTemplate.qrc.in \
+	/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlPluginTemplate.cpp.in \
+	/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in \
+	/usr/bin/cmake

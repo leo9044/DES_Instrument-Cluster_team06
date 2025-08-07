@@ -1,0 +1,530 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "Dependencies/Components/src/imports/tools/eventsystem/libQuickStudioEventSystem.a"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_qt_internal_add_library",
+			"qt6_add_library",
+			"qt_add_library",
+			"add_dependencies",
+			"_qt_internal_qml_copy_files_to_build_dir",
+			"qt6_target_qml_sources",
+			"qt6_add_qml_module",
+			"target_link_libraries",
+			"target_include_directories",
+			"_qt_internal_qml_type_registration",
+			"target_sources",
+			"qt6_extract_metatypes",
+			"__qt_propagate_generated_resource",
+			"_qt_internal_process_resource",
+			"qt6_add_resources",
+			"_qt_internal_expose_deferred_files_to_ide",
+			"qt6_finalize_target"
+		],
+		"files" : 
+		[
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"Dependencies/Components/src/imports/tools/eventsystem/CMakeLists.txt",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:787:EVAL"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 2804,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 2692,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2779,
+				"parent" : 3
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 916,
+				"parent" : 5
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 3497,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 3503,
+				"parent" : 6
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 2860,
+				"parent" : 9
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 596,
+				"parent" : 5
+			},
+			{
+				"command" : 10,
+				"file" : 2,
+				"line" : 796,
+				"parent" : 5
+			},
+			{
+				"command" : 9,
+				"file" : 2,
+				"line" : 3904,
+				"parent" : 12
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 3704,
+				"parent" : 12
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 1486,
+				"parent" : 14
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3870,
+				"parent" : 12
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 850,
+				"parent" : 5
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 17
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 18
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 19
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3205,
+				"parent" : 6
+			},
+			{
+				"command" : 11,
+				"file" : 2,
+				"line" : 3205,
+				"parent" : 6
+			},
+			{
+				"command" : 15,
+				"file" : 2,
+				"line" : 3519,
+				"parent" : 6
+			},
+			{
+				"command" : 14,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 23
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 24
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 25
+			},
+			{
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
+			},
+			{
+				"command" : 17,
+				"file" : 3,
+				"line" : 1,
+				"parent" : 27
+			},
+			{
+				"command" : 16,
+				"file" : 0,
+				"line" : 812,
+				"parent" : 28
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 2197,
+				"parent" : 29
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 11,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 11,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 11,
+					"define" : "QT_QML_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem"
+				},
+				{
+					"path" : "/home/siwoo/Design/Dependencies/Components/src/imports/tools/eventsystem"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/include"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1/QtQml"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1/QtCore"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 13,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtNetwork"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				3,
+				6
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 8,
+			"id" : "QuickStudioEventSystem_copy_qml::@7abcc90e1fb5c1ae319b"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "QuickStudioEventSystem_copy_res::@7abcc90e1fb5c1ae319b"
+		},
+		{
+			"id" : "QuickStudioEventSystem_autogen_timestamp_deps::@7abcc90e1fb5c1ae319b"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "QuickStudioEventSystem_autogen::@7abcc90e1fb5c1ae319b"
+		}
+	],
+	"id" : "QuickStudioEventSystem::@7abcc90e1fb5c1ae319b",
+	"name" : "QuickStudioEventSystem",
+	"nameOnDisk" : "libQuickStudioEventSystem.a",
+	"paths" : 
+	{
+		"build" : "Dependencies/Components/src/imports/tools/eventsystem",
+		"source" : "Dependencies/Components/src/imports/tools/eventsystem"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				6,
+				7,
+				8,
+				9,
+				10
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				4,
+				5
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				18,
+				19,
+				20
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 15,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_debug_metatypes.json.gen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 16,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/quickstudioeventsystem_qmltyperegistrations.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 20,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/qrc_qmake_QtQuick_Studio_EventSystem.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 21,
+			"path" : "Dependencies/Components/src/imports/tools/eventsystem/EventSystem.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 22,
+			"path" : "Dependencies/Components/src/imports/tools/eventsystem/EventListener.qml",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 26,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/qrc_QuickStudioEventSystem_raw_qml_0.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/qmake_QtQuick_Studio_EventSystem.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/qml/QtQuick/Studio/EventSystem/qmldir",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 30,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/QuickStudioEventSystem_raw_qml_0.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_debug_metatypes.json.gen.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/quickstudioeventsystem_qmltyperegistrations.cpp.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/qrc_qmake_QtQuick_Studio_EventSystem.cpp.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/.qt/rcc/qrc_QuickStudioEventSystem_raw_qml_0.cpp.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/QuickStudioEventSystem_autogen/timestamp.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/meta_types/QuickStudioEventSystem_json_file_list.txt.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/tools/eventsystem/meta_types/qt6quickstudioeventsystem_debug_metatypes.json.rule",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6qml_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6core_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 11,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6network_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

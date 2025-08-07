@@ -1,0 +1,12 @@
+-I
+/home/siwoo/DesignApp-Debug/qml
+-I
+/home/siwoo/DesignApp-Debug/qml
+-I
+/home/siwoo/Qt/6.9.1/gcc_64/qml
+--resource
+/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qmake_DesignContent.qrc
+--resource
+/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/DesignContent_raw_qml_0.qrc
+--module
+DesignContent

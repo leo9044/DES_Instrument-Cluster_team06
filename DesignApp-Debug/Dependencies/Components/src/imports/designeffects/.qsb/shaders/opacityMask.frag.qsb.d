@@ -1,0 +1,2 @@
+/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/designeffects/.qsb/shaders/opacityMask.frag.qsb: \
+  /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/shaders/opacityMask.frag

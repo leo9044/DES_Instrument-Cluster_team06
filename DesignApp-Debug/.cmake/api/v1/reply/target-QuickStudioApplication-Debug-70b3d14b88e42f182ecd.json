@@ -1,0 +1,465 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "Dependencies/Components/src/imports/application/libQuickStudioApplication.a"
+		}
+	],
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"_qt_internal_add_library",
+			"qt6_add_library",
+			"qt_add_library",
+			"target_link_libraries",
+			"qt6_add_qml_module",
+			"target_include_directories",
+			"_qt_internal_qml_type_registration",
+			"target_sources",
+			"qt6_extract_metatypes",
+			"__qt_propagate_generated_resource",
+			"_qt_internal_process_resource",
+			"qt6_add_resources",
+			"_qt_internal_expose_deferred_files_to_ide",
+			"qt6_finalize_target"
+		],
+		"files" : 
+		[
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"Dependencies/Components/src/imports/application/CMakeLists.txt",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Qml/Qt6QmlMacros.cmake",
+			"/home/siwoo/Qt/6.9.1/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake:787:EVAL"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 2804,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 2692,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 2779,
+				"parent" : 3
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 596,
+				"parent" : 5
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 2,
+				"line" : 796,
+				"parent" : 5
+			},
+			{
+				"command" : 6,
+				"file" : 2,
+				"line" : 3904,
+				"parent" : 8
+			},
+			{
+				"command" : 9,
+				"file" : 2,
+				"line" : 3704,
+				"parent" : 8
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 1486,
+				"parent" : 10
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 3870,
+				"parent" : 8
+			},
+			{
+				"command" : 12,
+				"file" : 2,
+				"line" : 850,
+				"parent" : 5
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 401,
+				"parent" : 13
+			},
+			{
+				"command" : 10,
+				"file" : 0,
+				"line" : 2528,
+				"parent" : 14
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 2072,
+				"parent" : 15
+			},
+			{
+				"command" : 8,
+				"file" : 2,
+				"line" : 897,
+				"parent" : 5
+			},
+			{
+				"file" : 1,
+				"line" : -1,
+				"parent" : 0
+			},
+			{
+				"command" : 14,
+				"file" : 3,
+				"line" : 1,
+				"parent" : 18
+			},
+			{
+				"command" : 13,
+				"file" : 0,
+				"line" : 812,
+				"parent" : 19
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 2197,
+				"parent" : 20
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-DQT_QML_DEBUG -g -fdiagnostics-color=always"
+				},
+				{
+					"backtrace" : 6,
+					"fragment" : "-fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_QMLINTEGRATION_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_QML_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application"
+				},
+				{
+					"path" : "/home/siwoo/Design/Dependencies/Components/src/imports/application"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/QuickStudioApplication_autogen/include"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml/6.9.1/QtQml"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore/6.9.1/QtCore"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtCore"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQml"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtQmlIntegration"
+				},
+				{
+					"backtrace" : 9,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtNetwork"
+				},
+				{
+					"backtrace" : 7,
+					"isSystem" : true,
+					"path" : "/home/siwoo/Qt/6.9.1/gcc_64/include/QtGui"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"id" : "QuickStudioApplication_autogen_timestamp_deps::@f9460591756501d20fea"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "QuickStudioApplication_autogen::@f9460591756501d20fea"
+		}
+	],
+	"id" : "QuickStudioApplication::@f9460591756501d20fea",
+	"name" : "QuickStudioApplication",
+	"nameOnDisk" : "libQuickStudioApplication.a",
+	"paths" : 
+	{
+		"build" : "Dependencies/Components/src/imports/application",
+		"source" : "Dependencies/Components/src/imports/application"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files\\Generated",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				6,
+				7,
+				8
+			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				4
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				5
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				15,
+				16,
+				17,
+				18
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/QuickStudioApplication_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 11,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/meta_types/qt6quickstudioapplication_debug_metatypes.json.gen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 12,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/quickstudioapplication_qmltyperegistrations.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 16,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/.qt/rcc/qrc_qmake_QtQuick_Studio_Application.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 17,
+			"compileGroupIndex" : 0,
+			"path" : "Dependencies/Components/src/imports/application/quickstudioapplication.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 17,
+			"path" : "Dependencies/Components/src/imports/application/quickstudioapplication_p.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 21,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/.qt/rcc/qmake_QtQuick_Studio_Application.qrc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 21,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/qml/QtQuick/Studio/Application/qmldir",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/QuickStudioApplication_autogen/timestamp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/meta_types/qt6quickstudioapplication_debug_metatypes.json.gen.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/quickstudioapplication_qmltyperegistrations.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/.qt/rcc/qrc_qmake_QtQuick_Studio_Application.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/QuickStudioApplication_autogen/timestamp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/meta_types/QuickStudioApplication_json_file_list.txt.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/application/meta_types/qt6quickstudioapplication_debug_metatypes.json.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 6,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6qml_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 6,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6core_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 6,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6network_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		},
+		{
+			"backtrace" : 7,
+			"path" : "/home/siwoo/Qt/6.9.1/gcc_64/metatypes/qt6gui_relwithdebinfo_metatypes.json",
+			"sourceGroupIndex" : 4
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

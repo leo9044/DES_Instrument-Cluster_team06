@@ -1,0 +1,10 @@
+module Design
+linktarget Designplugin
+optional plugin Designplugin
+classname DesignPlugin
+typeinfo Design.qmltypes
+prefer :/qt/qml/Design/
+singleton Constants 1.0 Constants.qml
+EventListModel 1.0 EventListModel.qml
+EventListSimulator 1.0 EventListSimulator.qml
+

@@ -1,0 +1,75 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"Dependencies/Components/src/imports/effects_qt6/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "QuickStudioEffectsplugin_autogen_timestamp_deps::@85c7bef3a3ca088206ac"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "QuickStudioEffectsplugin_autogen::@85c7bef3a3ca088206ac",
+	"isGeneratorProvided" : true,
+	"name" : "QuickStudioEffectsplugin_autogen",
+	"paths" : 
+	{
+		"build" : "Dependencies/Components/src/imports/effects_qt6",
+		"source" : "Dependencies/Components/src/imports/effects_qt6"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/effects_qt6/CMakeFiles/QuickStudioEffectsplugin_autogen.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/effects_qt6/QuickStudioEffectsplugin_autogen/timestamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

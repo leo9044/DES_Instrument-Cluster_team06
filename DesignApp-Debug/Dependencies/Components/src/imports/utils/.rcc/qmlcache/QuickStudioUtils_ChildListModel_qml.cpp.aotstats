@@ -1,0 +1,20 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": false,
+                        "column": 26,
+                        "durationMicroseconds": 657,
+                        "errorMessage": "Cannot load property modelName from (component in /home/siwoo/Design/Dependencies/Components/src/imports/utils/ChildListModel.qml)::modelName with type QString.",
+                        "functionName": "onJsonObjectChanged",
+                        "line": 50
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/utils/ChildListModel.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.Utils(QuickStudioUtils)"
+    }
+]

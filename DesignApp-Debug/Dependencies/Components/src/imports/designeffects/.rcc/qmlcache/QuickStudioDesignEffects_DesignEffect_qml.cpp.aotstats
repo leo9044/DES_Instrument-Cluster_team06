@@ -1,0 +1,84 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 22,
+                        "durationMicroseconds": 776,
+                        "errorMessage": "",
+                        "functionName": "onParentChanged",
+                        "line": 55
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 23,
+                        "durationMicroseconds": 437,
+                        "errorMessage": "",
+                        "functionName": "onVisibleChanged",
+                        "line": 74
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 21,
+                        "durationMicroseconds": 21,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "source",
+                        "line": 96
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 22,
+                        "durationMicroseconds": 12,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "effects",
+                        "line": 98
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 31,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "layerBlurVisible",
+                        "line": 99
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 30,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "layerBlurRadius",
+                        "line": 100
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "backgroundBlurVisible",
+                        "line": 101
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 35,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "backgroundBlurRadius",
+                        "line": 102
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 25,
+                        "durationMicroseconds": 11,
+                        "errorMessage": "Cannot access value for name root",
+                        "functionName": "background",
+                        "line": 103
+                    }
+                ],
+                "filePath": "/home/siwoo/Design/Dependencies/Components/src/imports/designeffects/DesignEffect.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.DesignEffects(QuickStudioDesignEffects)"
+    }
+]
