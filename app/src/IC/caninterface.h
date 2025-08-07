@@ -1,75 +1,91 @@
-// CanInterface.h
 #ifndef CANINTERFACE_H
 #define CANINTERFACE_H
 
 #include <QObject>
-#include <QSerialPort>
 #include <QTimer>
-#include <QSettings>
-#include <QByteArray>
+#include <QThread>
+#include <QMutex>
+#include <QDebug>
+#include <QProcess>
+#include <linux/can.h>
+#include <linux/can/raw.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <net/if.h>
+#include <unistd.h>
+#include <cstring>
 
+/**
+ * @brief Arduino CAN 통신을 위한 Qt 클래스
+ *
+ * Arduino MCP2515에서 보내는 속도 데이터를 수신하고 Qt 시그널로 전달
+ */
 class CanInterface : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool isConnected READ isConnected NOTIFY connectionChanged)
-    Q_PROPERTY(int speed READ speed NOTIFY speedChanged)
-    Q_PROPERTY(int rpm READ rpm NOTIFY rpmChanged)
 
 public:
     explicit CanInterface(QObject *parent = nullptr);
     ~CanInterface();
 
-    // Properties
-    bool isConnected() const { return m_isConnected; }
-    int speed() const { return m_speed; }
-    int rpm() const { return m_rpm; }
+    // CAN 연결 관리
+    bool connectToCan(const QString &interface = "can0");
+    void disconnectFromCan();
+    bool isConnected() const;
 
-    // Public methods
-    Q_INVOKABLE bool initialize(const QString &portName = "/dev/ttyUSB0");
-    Q_INVOKABLE void startReceiving();
-    Q_INVOKABLE void stopReceiving();
-    Q_INVOKABLE void sendCanMessage(quint32 id, const QByteArray &data);
+    // 현재 속도 데이터 가져오기
+    float getCurrentSpeedKmh() const;
+    float getCurrentSpeedCms() const;
+    float getCurrentRpm() const;
+
+    // 테스트용 데이터 전송
+    void sendTestSpeedData(float speedCms);
+
+public slots:
+    void startReceiving();
+    void stopReceiving();
 
 signals:
-    void connectionChanged();
-    void speedChanged();
-    void rpmChanged();
-    void canMessageReceived(quint32 id, const QByteArray &data);
-    void errorOccurred(const QString &error);
+    // 새로운 속도 데이터 수신 시 발생
+    void speedDataReceived(float speedKmh, float speedCms);
+    void rpmDataReceived(float rpm);
+
+    // 연결 상태 변경 시 발생
+    void canConnected();
+    void canDisconnected();
+    void canError(const QString &error);
 
 private slots:
-    void readSerialData();
-    void handleSerialError(QSerialPort::SerialPortError error);
-    void processCanMessage();
+    void receiveCanMessages();
 
 private:
-    // Arduino 시리얼 통신
-    QSerialPort *m_serialPort;
-    QTimer *m_receiveTimer;
+    // CAN 인터페이스 설정
+    bool setupCanInterface(const QString &interface);
 
-    // 설정
-    QSettings *m_settings;
-    QString m_configFile;
+    // 메시지 처리
+    void processCanMessage(const struct can_frame &frame);
+    float parseArduinoSpeedData(const uint8_t *data);
 
-    // 상태
+    // 멤버 변수
+    QString m_interfaceName;
+    int m_canSocket;
     bool m_isConnected;
     bool m_isReceiving;
 
-    // 데이터
-    int m_speed;
-    int m_rpm;
-    QByteArray m_receiveBuffer;
+    QTimer *m_receiveTimer;
+    mutable QMutex m_dataMutex;  // mutable 추가: const 함수 내에서도 락 가능
 
-    // CAN 메시지 ID (config에서 로드)
-    quint32 m_speedSensorId;
-    quint32 m_rpmSensorId;
-    quint32 m_diagnosticId;
+    // 속도 데이터 저장
+    struct SpeedData {
+        float speedCms;    // Arduino에서 전송하는 cm/s
+        float speedKmh;    // km/h로 변환된 값
+        float rpm;
+        qint64 timestamp;
+    } m_speedData;
 
-    // Private methods
-    void loadConfiguration();
-    void parseCanData(const QByteArray &data);
-    quint32 extractCanId(const QByteArray &data);
-    QByteArray extractCanData(const QByteArray &data);
+    // Arduino CAN ID (Arduino 코드와 동일)
+    static constexpr uint32_t ARDUINO_SPEED_ID = 0x0F6;
+    static constexpr uint32_t ARDUINO_RPM_ID = 0x124;  // 추후 RPM 데이터용
 };
 
 #endif // CANINTERFACE_H
