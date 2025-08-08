@@ -24,11 +24,13 @@ Rectangle {
         }
     }
 
-    // canInterface의 speed 데이터 수신 시 처리
-    Connections {
-        target: canInterface
-        onSpeedDataReceived: {
-            speed = Math.min(Math.round(speedKmh), 240);
+    // QML에서 CanInterface의 speedDataReceived 시그널 연결
+        Connections {
+            target: canInterface
+            onSpeedDataReceived: {
+                // speedKmh가 float이므로 int로 변환
+                speed = Math.min(Math.round(speedCms), 240);
+            }
         }
     }
 
