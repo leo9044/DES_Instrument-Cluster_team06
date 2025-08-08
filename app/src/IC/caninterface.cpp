@@ -208,7 +208,7 @@ void CanInterface::processCanMessage(const struct can_frame &frame)
         m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
         locker.unlock();
 
-        emit speedDataReceived(speedKmh, speedCms);
+        emit speedDataReceived(speedCms, speedCms);
 
 
 
