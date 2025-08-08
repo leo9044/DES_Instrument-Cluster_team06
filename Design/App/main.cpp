@@ -1,24 +1,28 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QApplication>
 #include <QQmlContext>
-#include <QQmlEngine>
-#include <QtQml>  // 이게 있어야 qmlRegisterSingletonType 사용 가능
+#include <QtQml>  // qmlRegisterSingletonType 위해 필요
+#include "caninterface.h"
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
-    
-    // QML import path 추가
+
+    // QML import path 추가 (필요한 경우)
     engine.addImportPath("qrc:/");
     qDebug() << "Import path added: qrc:/";
 
     // Constants.qml 등록
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/Design/Constants.qml")),
-                              "Design", 1, 0, "Constants");
+                             "Design", 1, 0, "Constants");
 
-    // App.qml 로딩
+    // CAN 인터페이스 생성 및 QML에 등록
+    CanInterface canInterface;
+    engine.rootContext()->setContextProperty("canInterface", &canInterface);
+
+    // App.qml 로딩 경로
     const QUrl url(QStringLiteral("qrc:/DesignContent/App.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
@@ -27,6 +31,13 @@ int main(int argc, char *argv[])
                      }, Qt::QueuedConnection);
 
     engine.load(url);
+
+    // CAN 연결 시도 (라즈베리파이: can0, 개발시: vcan0)
+    if (canInterface.connectToCan("can0")) {
+        canInterface.startReceiving();
+    } else {
+        qWarning() << "Failed to connect to CAN interface";
+    }
 
     return app.exec();
 }

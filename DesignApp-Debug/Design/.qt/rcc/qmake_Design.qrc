@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Design">
-    <file alias="qmldir">/home/siwoo/DesignApp-Debug/qml/Design/qmldir</file>
-  </qresource>
-</RCC>
-

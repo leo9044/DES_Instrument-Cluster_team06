@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 17.0.0, 2025-08-06T23:36:35. -->
+<!-- Written by QtCreator 17.0.0, 2025-08-07T16:25:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -104,22 +104,22 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DQt5_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5
--DCMAKE_BUILD_TYPE:STRING=Debug
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_BUILD_TYPE:STRING=Debug
+-DQt5_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5
+-DCMAKE_C_COMPILER_TARGET:STRING=aarch64-linux-gnu
+-DCMAKE_GENERATOR:STRING=Unix Makefiles
+-DCMAKE_AUTOMOC_RELAXED_MODE:BOOL=ON
+-DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 -DCMAKE_CXX_COMPILER_TARGET:STRING=aarch64-linux-gnu
+-DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
+-DQt5Core_RCC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/rcc
+-DQt5Core_MOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
 -DCMAKE_TOOLCHAIN_FILE:STRING=/home/leo/cross/raspberry-pi-toolchain.cmake
 -DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
--DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
--DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
--DCMAKE_GENERATOR:STRING=Unix Makefiles
--DCMAKE_C_COMPILER_TARGET:STRING=aarch64-linux-gnu
--DQt5Core_MOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
--DCMAKE_AUTOMOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
 -DCMAKE_SYSROOT:PATH=/home/leo/raspi-sysroot
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQt5Core_RCC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/rcc
 -DCMAKE_AUTOMOC_DEPEND_FILTERS:STRING=&quot;&quot;
--DCMAKE_AUTOMOC_RELAXED_MODE:BOOL=ON
+-DCMAKE_AUTOMOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
 </value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/leo/IC/build/Raspberry_Pi_Cross_Compile-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -319,16 +319,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}
--DCMAKE_BUILD_TYPE:STRING=Debug
--DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
--DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_BUILD_TYPE:STRING=Debug
 -DCMAKE_GENERATOR:STRING=Ninja
--DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
--DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake</value>
+-DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
+-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
+-DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
+-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}</value>
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/leo/IC/build/Desktop_Qt_6_8_3-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">

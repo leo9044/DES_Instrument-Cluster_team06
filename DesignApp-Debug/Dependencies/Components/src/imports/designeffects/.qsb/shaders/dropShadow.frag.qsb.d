@@ -1,2 +1,0 @@
-/home/siwoo/DesignApp-Debug/Dependencies/Components/src/imports/designeffects/.qsb/shaders/dropShadow.frag.qsb: \
-  /home/siwoo/Design/Dependencies/Components/src/imports/designeffects/shaders/dropShadow.frag

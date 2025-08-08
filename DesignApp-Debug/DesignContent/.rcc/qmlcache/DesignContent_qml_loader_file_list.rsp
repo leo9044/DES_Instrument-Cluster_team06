@@ -1,7 +1,0 @@
---resource
-/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/qmake_DesignContent.qrc
---resource
-/home/siwoo/DesignApp-Debug/DesignContent/.qt/rcc/DesignContent_raw_qml_0.qrc
-/qt/qml/DesignContent/Screen01.qml
-/qt/qml/DesignContent/Screen01Form.ui.qml
-/qt/qml/DesignContent/App.qml

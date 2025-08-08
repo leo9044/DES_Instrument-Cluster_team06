@@ -14,6 +14,15 @@ Rectangle {
     property real batteryFillHeight: 0
     property color batteryColor: "#57e389"
 
+    // QML에서 CanInterface의 speedDataReceived 시그널 연결
+        Connections {
+            target: canInterface
+            onSpeedDataReceived: {
+                // speedKmh가 float이므로 int로 변환
+                speed = Math.min(Math.round(speedKmh), 240);
+            }
+        }
+
     Rectangle {
         id: battery_fill
         width: 70
@@ -33,15 +42,6 @@ Rectangle {
         color: speed <= 80 ? "#ff4444" // 빨강
                            : speed <= 160 ? "#ffaa33" // 주황
                                           : "#57e389" // 초록
-    }
-
-    Timer {
-        id: speedTestTimer
-        interval: 50
-        running: true
-        repeat: true
-
-        onTriggered: speed < 240 ? speed += 1 : speed = 0
     }
 
     Image {
