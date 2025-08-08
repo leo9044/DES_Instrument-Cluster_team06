@@ -158,3 +158,6 @@ logs/
 data/
 *.tmp
 test_results/
+
+# Cross compile output folder
+DesignApp-Debug/
