@@ -8,20 +8,29 @@ Rectangle {
     height: Constants.height
     color: "#000000"
 
+    // 속도 프로퍼티
     property int speed: 0
+
+    // 기어 상태 프로퍼티 (초기값 'P')
     property string gear: "P"
 
-    property real batteryFillHeight: 0
-    property color batteryColor: "#57e389"
-
-    // QML에서 CanInterface의 speedDataReceived 시그널 연결
-        Connections {
-            target: canInterface
-            onSpeedDataReceived: {
-                // speedKmh가 float이므로 int로 변환
-                speed = Math.min(Math.round(speedKmh), 240);
-            }
+    // dbusReceiver의 gear 변경 시그널을 감지해서
+    // QML 내부 gear 프로퍼티를 업데이트함
+    Connections {
+        target: dbusReceiver
+        onGearChanged: {
+            gear = dbusReceiver.gear
+            console.log("Gear updated from D-Bus:", gear)
         }
+    }
+
+    // canInterface의 speed 데이터 수신 시 처리
+    Connections {
+        target: canInterface
+        onSpeedDataReceived: {
+            speed = Math.min(Math.round(speedKmh), 240);
+        }
+    }
 
     Rectangle {
         id: battery_fill
@@ -33,12 +42,11 @@ Rectangle {
         border.color: "#ffffff"
         z: battery_white.z
 
-        // 배터리 이미지의 하단 기준으로 고정하되, 이미지 내부 위치에 맞게 조정
         anchors.bottom: battery_white.bottom
         anchors.horizontalCenter: battery_white.horizontalCenter
-        anchors.bottomMargin: 15 // ⚠️이 값을 조정하면서 시각적으로 맞추세요
+        anchors.bottomMargin: 15 // ⚠️ 이 값을 조정하면서 시각적으로 맞추세요
 
-        // 🟩🟧🟥 속도에 따라 배터리 색상 자동 변경
+        // 속도에 따른 배터리 색상 변경
         color: speed <= 80 ? "#ff4444" // 빨강
                            : speed <= 160 ? "#ffaa33" // 주황
                                           : "#57e389" // 초록
@@ -181,6 +189,7 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
     }
 
+    // 속도 표시 텍스트 (읽기 전용)
     TextInput {
         id: textInput3
         x: 546
@@ -194,7 +203,6 @@ Rectangle {
         font.bold: true
         readOnly: true
 
-        // ✨ text 속성 바인딩을 명시적으로 설정
         Binding {
             target: textInput3
             property: "text"
@@ -202,6 +210,7 @@ Rectangle {
         }
     }
 
+    // 기어 상태 표시 텍스트 (읽기 전용)
     TextInput {
         id: textInput4
         x: 125
@@ -214,6 +223,8 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.bold: true
         readOnly: true
+
+        // gear 프로퍼티와 바인딩
         text: gear
     }
 

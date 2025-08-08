@@ -264,6 +264,9 @@ Qt5Core_MOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
 //No help, variable specified on the command line.
 Qt5Core_RCC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/rcc
 
+//The directory containing a CMake configuration file for Qt5DBus.
+Qt5DBus_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5DBus
+
 //The directory containing a CMake configuration file for Qt5Gui.
 Qt5Gui_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5Gui
 

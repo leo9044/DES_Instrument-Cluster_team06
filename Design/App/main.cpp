@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QtQml>  // qmlRegisterSingletonType 위해 필요
 #include "caninterface.h"
+#include "dbusreceiver.h"  // 추가: D-Bus 리시버 헤더
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -21,6 +22,11 @@ int main(int argc, char *argv[])
     // CAN 인터페이스 생성 및 QML에 등록
     CanInterface canInterface;
     engine.rootContext()->setContextProperty("canInterface", &canInterface);
+
+    // D-Bus 리시버 생성 및 QML에 등록
+    DBusReceiver dbusReceiver;
+    engine.rootContext()->setContextProperty("dbusReceiver", &dbusReceiver);
+    // -> QML에서 dbusReceiver.getBatteryStatus(), dbusReceiver.getGear() 호출 가능
 
     // App.qml 로딩 경로
     const QUrl url(QStringLiteral("qrc:/DesignContent/App.qml"));
