@@ -241,4 +241,4 @@ Rectangle {
         rotation: -90
         fillMode: Image.PreserveAspectFit
     }
-}
+

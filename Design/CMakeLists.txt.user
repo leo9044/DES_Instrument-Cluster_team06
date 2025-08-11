@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 17.0.0, 2025-08-09T01:52:02. -->
+<!-- Written by QtCreator 17.0.0, 2025-08-11T14:42:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -107,22 +107,22 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=/home/leo/cross/raspberry-pi-toolchain.cmake
--DCMAKE_AUTOMOC_DEPEND_FILTERS:STRING=&quot;&quot;
--DCMAKE_BUILD_TYPE:STRING=Debug
--DCMAKE_GENERATOR:STRING=Unix Makefiles
--DCMAKE_C_COMPILER_TARGET:STRING=aarch64-linux-gnu
--DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
--DCMAKE_CXX_COMPILER_TARGET:STRING=aarch64-linux-gnu
--DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
--DCMAKE_AUTOMOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
--DCMAKE_SYSROOT:PATH=/home/leo/raspi-sysroot
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_COMPILER_TARGET:STRING=aarch64-linux-gnu
 -DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/make
--DCMAKE_AUTOMOC_RELAXED_MODE:BOOL=ON
--DQt5_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5
+-DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
+-DCMAKE_C_COMPILER_TARGET:STRING=aarch64-linux-gnu
+-DCMAKE_AUTOMOC_DEPEND_FILTERS:STRING=&quot;&quot;
+-DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+-DCMAKE_BUILD_TYPE:STRING=Debug
 -DQt5Core_MOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
+-DCMAKE_GENERATOR:STRING=Unix Makefiles
 -DQt5Core_RCC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/rcc
+-DCMAKE_SYSROOT:PATH=/home/leo/raspi-sysroot
+-DCMAKE_TOOLCHAIN_FILE:STRING=/home/leo/cross/raspberry-pi-toolchain.cmake
+-DQt5_DIR:PATH=/home/leo/raspi-sysroot/usr/lib/aarch64-linux-gnu/cmake/Qt5
+-DCMAKE_AUTOMOC_EXECUTABLE:FILEPATH=/usr/lib/qt5/bin/moc
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_AUTOMOC_RELAXED_MODE:BOOL=ON
 </value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/leo/SEA-ME_leo9044/IC_C++/DesignApp-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -324,14 +324,14 @@
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
     <value type="QString" key="CMake.Initial.Parameters">-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
--DCMAKE_BUILD_TYPE:STRING=Debug
--DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 -DQT_MAINTENANCE_TOOL:FILEPATH=/home/leo/Qt/MaintenanceTool
+-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}
+-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}
+-DCMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+-DCMAKE_BUILD_TYPE:STRING=Debug
+-DCMAKE_GENERATOR:STRING=Ninja
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}</value>
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake</value>
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">/home/leo/SEA-ME_leo9044/IC_C++/DesignApp-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
