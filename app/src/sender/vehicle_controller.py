@@ -97,14 +97,26 @@ class VehicleController:
 class VehicleControllerService(dbus.service.Object):
     """DBus 서비스: VehicleController의 기어 상태 제공"""
 
+    # --- 수정: 기어 변경 신호 선언 ---
+    gearChanged = dbus.service.signal(dbus_interface=INTERFACE, signature='s')
+
     def __init__(self, bus, controller: VehicleController):
         super().__init__(bus, OBJECT_PATH)
         self.controller = controller
+        self.last_gear = None  # 마지막 기어 상태 저장용
 
     @dbus.service.method(INTERFACE, in_signature='', out_signature='s')
     def GetGear(self):
         """현재 기어 상태 반환 (DBus 메서드)"""
         return self.controller.get_gear()
+
+    # --- 수정: 기어 상태가 변경되면 신호를 emit하는 메서드 추가 ---
+    def emit_gear_changed_if_needed(self):
+        current_gear = self.controller.get_gear()
+        if current_gear != self.last_gear:
+            self.last_gear = current_gear
+            # 신호 방출 (기어 변경 알림)
+            self.gearChanged(current_gear)
 
 
 if __name__ == '__main__':
@@ -125,9 +137,14 @@ if __name__ == '__main__':
         while True:
             # 주기적으로 차량 제어 업데이트
             controller.update_controls()
+
+            # --- 수정: 기어 변경 신호 체크 및 emit ---
+            service.emit_gear_changed_if_needed()
+
             # DBus는 GLib 이벤트 루프가 처리
             while loop.get_context().pending():
                 loop.get_context().iteration(False)
+
             time.sleep(0.02)  # 20ms 주기
     except KeyboardInterrupt:
         print("\nStopping Vehicle Controller...")
