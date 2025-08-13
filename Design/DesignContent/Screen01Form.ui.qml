@@ -31,7 +31,7 @@ Rectangle {
             // NOTE: 시그널이 어떤 인자를 보내는지 맞춰야 합니다.
             // 예: if canInterface emits (speedCms) -> 사용중인 변수명 speedCms가 맞음.
             // 만약 실제 이름이 speedKmh라면 여기에서 맞춰주어야 합니다.
-            speed = Math.min(Math.round(speedCms), 240);
+            speed = Math.min(speedCms, 240);
         }
     }
     // <-- 위에서 불필요하게 닫은 중괄호를 제거했습니다 (원래 문제 지점)
@@ -208,7 +208,7 @@ Rectangle {
         readOnly: true
 
         // 간단히 바인딩으로 대체 (원래 Binding도 동작하지만 가독성 위해 변경)
-        text: speed.toString()
+        text: Math.round(speed).toString()
     }
 
     // 기어 상태 표시 텍스트 (읽기 전용)
