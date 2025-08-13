@@ -9,9 +9,9 @@ CanInterface::CanInterface(QObject *parent)
     , m_receiveTimer(new QTimer(this))
 {
     // 속도 데이터 초기화
-    m_speedData.speedCms = 0.0f;
-    m_speedData.speedKmh = 0.0f;
-    m_speedData.rpm = 0.0f;
+    m_speedData.speedCms = 0.0f;   // cm/s
+    m_speedData.speedKmh = 0.0f;   // km/h
+    m_speedData.rpm      = 0.0f;
     m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
 
     // 타이머 설정 (10ms마다 CAN 메시지 체크)
@@ -199,18 +199,18 @@ void CanInterface::receiveCanMessages()
 void CanInterface::processCanMessage(const struct can_frame &frame)
 {
     if (frame.can_id == ARDUINO_SPEED_ID) {
-        float speedCms = parseArduinoSpeedData(frame.data);
-        float speedKmh = speedCms * 0.036f;
+        float speedCms = parseArduinoSpeedData(frame.data);     // cm/s
+        float speedKmh = speedCms * 0.036f;                     // km/h
 
-        QMutexLocker locker(&m_dataMutex);
-        m_speedData.speedCms = speedCms;
-        m_speedData.speedKmh = speedKmh;
-        m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
-        locker.unlock();
+        {
+            QMutexLocker locker(&m_dataMutex);
+            m_speedData.speedCms  = speedCms;
+            m_speedData.speedKmh  = speedKmh;
+            m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
+        }
 
-        emit speedDataReceived(speedKmh, speedCms);
-
-
+        // ✅ cm/s와 km/h를 올바르게 전파
+        emit speedDataReceived(speedCms, speedKmh);
 
         // 디버깅용 원시 데이터 출력
         QString canData = "CAN 데이터: ";
@@ -233,7 +233,7 @@ float CanInterface::parseArduinoSpeedData(const uint8_t *data)
         int int1_spd = (data[0] << 8) | data[1];  // 정수 부분 재구성
         int int2_spd = data[2];                   // 소수 부분
 
-        float speedCms = int1_spd + (int2_spd / 100.0f);
+        float speedCms = int1_spd + (int2_spd / 100.0f);  // cm/s
         return qMax(0.0f, speedCms);  // 음수 방지
 
     } catch (...) {
