@@ -14,13 +14,24 @@ Rectangle {
     // 기어 상태 프로퍼티 (초기값 'P')
     property string gear: "P"
 
-    // dbusReceiver의 gear 변경 시그널을 감지해서
-    // QML 내부 gear 프로퍼티를 업데이트함
+    // dbusReceiver의 신호를 감지해서 QML 내부 프로퍼티를 업데이트
     Connections {
         target: dbusReceiver
+
+        // 기어 변경 신호 처리
         onGearChanged: {
             gear = dbusReceiver.gear
             console.log("Gear updated from D-Bus:", gear)
+        }
+
+        // 배터리 변경 신호 처리 (UI는 아래에서 직접 바인딩되므로 여기서는 로그만 출력)
+        onBatteryChanged: {
+            console.log("Battery Percentage updated:", dbusReceiver.batteryPercentage)
+        }
+
+        // 전류 변경 신호 처리 (UI는 아래에서 직접 바인딩되므로 여기서는 로그만 출력)
+        onCurrentChanged: {
+            console.log("Current updated:", dbusReceiver.current)
         }
     }
 
@@ -28,34 +39,69 @@ Rectangle {
     Connections {
         target: canInterface
         onSpeedDataReceived: {
-            // NOTE: 시그널이 어떤 인자를 보내는지 맞춰야 합니다.
-            // 예: if canInterface emits (speedCms) -> 사용중인 변수명 speedCms가 맞음.
-            // 만약 실제 이름이 speedKmh라면 여기에서 맞춰주어야 합니다.
             speed = Math.min(Math.round(speedCms), 240);
+            speed *= 27.7778;
         }
     }
-    // <-- 위에서 불필요하게 닫은 중괄호를 제거했습니다 (원래 문제 지점)
 
+    // --- Battery UI ---
     Rectangle {
         id: battery_fill
         width: 70
-        height: 116 * speed / 240
-        opacity: 1
+        // ⬇ 배터리 잔량(%)에 따라 높이를 계산하도록 바인딩
+        height: 116 * dbusReceiver.batteryPercentage / 100
         x: 1045
         y: 145
         border.color: "#ffffff"
-        z: battery_white.z
+        z: battery_outline_icon.z
 
-        anchors.bottom: battery_white.bottom
-        anchors.horizontalCenter: battery_white.horizontalCenter
-        anchors.bottomMargin: 15 // ⚠️ 이 값을 조정하면서 시각적으로 맞추세요
+        //anchors.bottom: battery_outline_icon.bottom
+        //anchors.horizontalCenter: battery_outline_icon.horizontalCenter
+        anchors.bottomMargin: 15
 
-        // 속도에 따른 배터리 색상 변경
-        color: speed <= 80 ? "#ff4444" // 빨강
-                           : speed <= 160 ? "#ffaa33" // 주황
-                                          : "#57e389" // 초록
+        // ⬇ 배터리 잔량(%)에 따라 색상을 변경하도록 바인딩
+        color: dbusReceiver.batteryPercentage <= 20 ? "#ff4444"  // 20% 이하 빨강
+             : dbusReceiver.batteryPercentage <= 60 ? "#ffaa33"  // 60% 이하 주황
+                                                    : "#57e389"  // 그 외 초록
     }
 
+    Image {
+        id: battery_outline_icon
+        x: 1024
+        y: 80
+        width: 120
+        source: "images/battery_outline_icon.png"
+        fillMode: Image.PreserveAspectFit
+    }
+
+    // ⬇ 충전 중 번개 아이콘 표시: 전류(current)가 0.1A 이상일 때 (충전 상태)
+    Image {
+        id: bolt_icon
+        x: 1050
+        y: 140
+        width: 60
+        source: "images/bolt_icon.png"
+        fillMode: Image.PreserveAspectFit
+        visible: dbusReceiver.current > 0.1
+    }
+
+    // ⬇ 배터리 잔량을 텍스트로 표시
+    Text {
+        id: battery_text
+        anchors.centerIn: battery_outline_icon
+        font.pixelSize: 25
+        font.bold: true
+        color: "white"
+        // ⬇ 배터리 퍼센티지 값과 '%' 기호를 함께 표시
+        text: dbusReceiver.batteryPercentage + "%"
+        // ⬇ 번개 아이콘이 보일 때는 텍스트를 숨김
+        visible: !bolt_icon.visible
+    }
+
+
+    // --- 이하 기존 UI 코드 (수정 없음) ---
+
+    //Gauge
     Image {
         id: gauge_Speed
         x: 453
@@ -106,6 +152,7 @@ Rectangle {
         }
     }
 
+    //Bottom
     Image {
         id: bottomPanel
         x: 291
@@ -193,7 +240,7 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
     }
 
-    // 속도 표시 텍스트 (읽기 전용)
+    // 속도 표시 텍스트
     TextInput {
         id: textInput3
         x: 546
@@ -206,12 +253,10 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.bold: true
         readOnly: true
-
-        // 간단히 바인딩으로 대체 (원래 Binding도 동작하지만 가독성 위해 변경)
         text: speed.toString()
     }
 
-    // 기어 상태 표시 텍스트 (읽기 전용)
+    // 기어 상태 표시 텍스트
     TextInput {
         id: textInput4
         x: 125
@@ -224,20 +269,6 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.bold: true
         readOnly: true
-
-        // gear 프로퍼티와 바인딩
         text: gear
-    }
-
-    Image {
-        id: battery_white
-        x: 1005
-        y: 125
-        width: 150
-        height: 150
-        opacity: 1
-        source: "images/Battery_white.png"
-        rotation: -90
-        fillMode: Image.PreserveAspectFit
     }
 }
