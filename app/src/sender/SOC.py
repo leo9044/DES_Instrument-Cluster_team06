@@ -1,62 +1,73 @@
 import time
-from ina219 import INA219
+import dbus
+import dbus.service
+import dbus.mainloop.glib
+from gi.repository import GLib
+from piracer.vehicles import PiRacerStandard
 
-# =========================
-# 배터리 스펙
-# =========================
-BATTERY_CAPACITY_MAH = 3000.0  # 1셀 기준
-NUM_CELLS = 3
-MIN_VOLTAGE = 3.0 * NUM_CELLS
-MAX_VOLTAGE = 4.2 * NUM_CELLS
+BUS_NAME = 'com.car.Battery'
+OBJECT_PATH = '/com/car/Battery'
+INTERFACE = 'com.car.Battery'
 
-# =========================
-# INA219 초기화
-# =========================
-ina = INA219(shunt_ohms=0.1)
-ina.configure()
+class BatteryMonitor:
+    def __init__(self):
+        self.piracer = PiRacerStandard()
+        self.alpha = 0.1
+        self.voltage_smoothed = self.piracer.get_battery_voltage()
 
-# =========================
-# SOC 초기화
-# =========================
-soc = 100.0
-last_time = time.time()
-count = 0
+    # 로우패스필터로 전압을 부드럽게 처리
+    # alpha 값이 작을수록 부드러워짐
+    def get_voltage(self) -> float:
+        v = self.piracer.get_battery_voltage()
+        self.voltage_smoothed = self.alpha * v + (1 - self.alpha) * self.voltage_smoothed
+        return self.voltage_smoothed
 
-# 로우패스 필터 초기값
-alpha = 0.1
-voltage_smoothed_previous = ina.voltage()  # 초기 전압
+    def get_current(self) -> float:
+        return self.piracer.get_battery_current()
 
-print("Battery Monitoring Started")
 
-while True:
-    voltage = ina.voltage()      # 배터리 전압 (V)
-    current_mA = ina.current()   # 배터리 전류 (mA, 양수=방전)
+class BatteryService(dbus.service.Object):
+    def __init__(self, bus, monitor: BatteryMonitor):
+        super().__init__(bus, OBJECT_PATH)
+        self.monitor = monitor
 
-    # 로우패스 필터로 전압 평활
-    voltage_smoothed = alpha * voltage + (1 - alpha) * voltage_smoothed_previous
-    voltage_smoothed_previous = voltage_smoothed
+    #데코레이터를 사용하여 DBus 메소드로 등록
+    @dbus.service.method(INTERFACE, in_signature='', out_signature='d')
+    def GetVoltage(self):
+        return self.monitor.get_voltage()
 
-    # 초기 SOC 설정 (전압 기반)
-    if count == 0:
-        soc = (voltage_smoothed - MIN_VOLTAGE) / (MAX_VOLTAGE - MIN_VOLTAGE) * 100.0
+    @dbus.service.method(INTERFACE, in_signature='', out_signature='d')
+    def GetCurrent(self):
+        return self.monitor.get_current()
 
-    now = time.time()
-    dt = (now - last_time) / 3600.0  # 시간 단위: h
-    last_time = now
+    #데코레이터를 사용하여 DBus 신호로 등록
+    @dbus.service.signal(INTERFACE, signature='d')
+    def currentAlert(self, current):
+        pass
 
-    # 1) Coulomb Counting
-    soc -= (current_mA * dt) / BATTERY_CAPACITY_MAH * 100.0
+    def check_current_and_emit(self):
+        current = self.monitor.get_current()
+        if abs(current) >= 100.0:
+            self.currentAlert(current)
 
-    # 2) 전압 기반 SOC 계산
-    voltage_soc = (voltage_smoothed - MIN_VOLTAGE) / (MAX_VOLTAGE - MIN_VOLTAGE) * 100.0
 
-    # 3) 혼합 (0.7 Coulomb + 0.3 Voltage)
-    soc = 0.7 * soc + 0.3 * voltage_soc
+if __name__ == '__main__':
+    print("🔋 Battery Monitor DBus Service Started")
 
-    # SOC 범위 제한
-    soc = max(0.0, min(100.0, soc))
+    dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+    bus = dbus.SessionBus()
+    name = dbus.service.BusName(BUS_NAME, bus)
 
-    print(f"Voltage: {voltage_smoothed:.2f}V, Current: {current_mA:.1f}mA, SOC: {soc:.1f}%")
+    monitor = BatteryMonitor()
+    service = BatteryService(bus, monitor)
 
-    count += 1
-    time.sleep(0.5)
+    loop = GLib.MainLoop()
+
+    try:
+        while True:
+            service.check_current_and_emit()
+            while loop.get_context().pending():
+                loop.get_context().iteration(False)
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        print("\nStopping Battery Monitor...")

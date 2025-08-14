@@ -172,7 +172,7 @@ class ShanWanGamepad(Joystick):
         if axis_number == 0:
             self.gamepad_input.analog_stick_left.x = axis_val
         elif axis_number == 1:
-            self.gamepad_input.analog_stick_left.y = -axis_val
+            self.gamepad_input.analog_stick_left.y = axis_val
         elif button_number == 9:
             self.gamepad_input.analog_stick_left.z = button_state
 
