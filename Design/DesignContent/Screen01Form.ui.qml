@@ -26,16 +26,24 @@ Rectangle {
         }
     }
 
-    // --- Battery UI ---
+
+// --- Battery UI ---
     Rectangle {
         id: battery_fill
         width: 70
         height: 116 * dbusReceiver.batteryPercentage / 100
         x: 1045
-        y: 145
+
+        // [수정] y 좌표를 높이와 연동하여 동적으로 계산
+        // 이렇게 하면 막대의 아랫부분이 항상 y=261 위치에 고정됩니다.
+        y: 261 - height
+
         border.color: "#ffffff"
         z: battery_outline_icon.z
-        anchors.bottomMargin: 15
+
+        // [삭제] 이 속성은 더 이상 필요 없습니다.
+        // anchors.bottomMargin: 15
+
         color: dbusReceiver.batteryPercentage <= 20 ? "#ff4444"
              : dbusReceiver.batteryPercentage <= 60 ? "#ffaa33"
                                                     : "#57e389"
