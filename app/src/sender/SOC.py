@@ -49,8 +49,9 @@ class BatteryService(dbus.service.Object):
         pass
 
     def get_percentage_from_voltage(self, voltage):
-        MIN_VOLTAGE = 6.0
-        MAX_VOLTAGE = 8.4
+        # 3셀(3S) LiPo 배터리 전압 기준
+        MIN_VOLTAGE = 9.0
+        MAX_VOLTAGE = 12.6
         percentage = ((voltage - MIN_VOLTAGE) / (MAX_VOLTAGE - MIN_VOLTAGE)) * 100.0
         return max(0, min(100, int(percentage)))
 
