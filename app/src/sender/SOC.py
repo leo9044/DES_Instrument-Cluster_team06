@@ -5,10 +5,10 @@ import dbus.mainloop.glib
 from gi.repository import GLib
 from piracer.vehicles import PiRacerStandard
 
-BUS_NAME = 'com.car.Battery'
-# [수정] D-Bus 규칙에 맞는 올바른 Object Path로 변경
-OBJECT_PATH = '/com/car/Battery'
-INTERFACE = 'com.car.Battery'
+# [수정] D-Bus 규칙에 맞는 올바른 이름으로 다시 통일
+BUS_NAME = 'org.piracer.Battery'
+OBJECT_PATH = '/org/piracer/Battery'
+INTERFACE = 'org.piracer.Battery'
 
 class BatteryMonitor:
     def __init__(self):
@@ -32,13 +32,15 @@ class BatteryService(dbus.service.Object):
         self.monitor = monitor
         self.was_charging = self.monitor.get_current() > 0.1
 
-    @dbus.service.method(INTERFACE, in_signature='', out_signature='d')
-    def GetVoltage(self):
-        return self.monitor.get_voltage()
-
-    @dbus.service.method(INTERFACE, in_signature='', out_signature='d')
-    def GetCurrent(self):
-        return self.monitor.get_current()
+    # [추가] C++ 클라이언트의 초기값 요청을 처리하는 새로운 메소드
+    # (percentage, current) 튜플을 반환합니다.
+    @dbus.service.method(INTERFACE, in_signature='', out_signature='(id)')
+    def GetInitialStatus(self):
+        voltage = self.monitor.get_voltage()
+        percentage = self.get_percentage_from_voltage(voltage)
+        current = self.monitor.get_current()
+        print(f"GetInitialStatus called. Returning: {percentage}%, {current:.2f}A")
+        return percentage, current
 
     @dbus.service.signal(INTERFACE, signature='d')
     def chargingStatusChanged(self, current):
@@ -88,12 +90,10 @@ if __name__ == '__main__':
     try:
         while True:
             service.check_charging_status()
-
             current_time = time.time()
             if current_time - last_percentage_emit_time >= 120:
                 service.emit_percentage()
                 last_percentage_emit_time = current_time
-
             while loop.get_context().pending():
                 loop.get_context().iteration(False)
             time.sleep(0.5)
