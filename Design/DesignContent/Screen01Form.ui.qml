@@ -8,39 +8,21 @@ Rectangle {
     height: Constants.height
     color: "#000000"
 
-    // 속도 프로퍼티
     property int speed: 0
-
-    // 기어 상태 프로퍼티 (초기값 'P')
     property string gear: "P"
 
-    // dbusReceiver의 신호를 감지해서 QML 내부 프로퍼티를 업데이트
     Connections {
         target: dbusReceiver
-
-        // 기어 변경 신호 처리
-        onGearChanged: {
-            gear = dbusReceiver.gear
-            console.log("Gear updated from D-Bus:", gear)
-        }
-
-        // 배터리 변경 신호 처리 (UI는 아래에서 직접 바인딩되므로 여기서는 로그만 출력)
-        onBatteryChanged: {
-            console.log("Battery Percentage updated:", dbusReceiver.batteryPercentage)
-        }
-
-        // 전류 변경 신호 처리 (UI는 아래에서 직접 바인딩되므로 여기서는 로그만 출력)
-        onCurrentChanged: {
-            console.log("Current updated:", dbusReceiver.current)
-        }
+        onGearChanged: { gear = dbusReceiver.gear }
+        onBatteryChanged: { console.log("Battery:", dbusReceiver.batteryPercentage) }
+        onCurrentChanged: { console.log("Current:", dbusReceiver.current) }
     }
 
-    // QML에서 CanInterface의 speedDataReceived 시그널 연결
     Connections {
         target: canInterface
+        // cm/s 값 하나만 받아서 speed 속성에 바로 반영
         onSpeedDataReceived: {
-            speed = Math.min(Math.round(speedCms), 240);
-            speed *= 27.7778;
+            speed = Math.round(speedCms);
         }
     }
 
@@ -48,21 +30,15 @@ Rectangle {
     Rectangle {
         id: battery_fill
         width: 70
-        // ⬇ 배터리 잔량(%)에 따라 높이를 계산하도록 바인딩
         height: 116 * dbusReceiver.batteryPercentage / 100
         x: 1045
         y: 145
         border.color: "#ffffff"
         z: battery_outline_icon.z
-
-        //anchors.bottom: battery_outline_icon.bottom
-        //anchors.horizontalCenter: battery_outline_icon.horizontalCenter
         anchors.bottomMargin: 15
-
-        // ⬇ 배터리 잔량(%)에 따라 색상을 변경하도록 바인딩
-        color: dbusReceiver.batteryPercentage <= 20 ? "#ff4444"  // 20% 이하 빨강
-             : dbusReceiver.batteryPercentage <= 60 ? "#ffaa33"  // 60% 이하 주황
-                                                    : "#57e389"  // 그 외 초록
+        color: dbusReceiver.batteryPercentage <= 20 ? "#ff4444"
+             : dbusReceiver.batteryPercentage <= 60 ? "#ffaa33"
+                                                    : "#57e389"
     }
 
     Image {
@@ -74,7 +50,6 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
     }
 
-    // ⬇ 충전 중 번개 아이콘 표시: 전류(current)가 0.1A 이상일 때 (충전 상태)
     Image {
         id: bolt_icon
         x: 1050
@@ -85,23 +60,17 @@ Rectangle {
         visible: dbusReceiver.current > 0.1
     }
 
-    // ⬇ 배터리 잔량을 텍스트로 표시
     Text {
         id: battery_text
         anchors.centerIn: battery_outline_icon
         font.pixelSize: 25
         font.bold: true
         color: "white"
-        // ⬇ 배터리 퍼센티지 값과 '%' 기호를 함께 표시
         text: dbusReceiver.batteryPercentage + "%"
-        // ⬇ 번개 아이콘이 보일 때는 텍스트를 숨김
         visible: !bolt_icon.visible
     }
 
-
-    // --- 이하 기존 UI 코드 (수정 없음) ---
-
-    //Gauge
+    // --- Gauge UI ---
     Image {
         id: gauge_Speed
         x: 453
@@ -144,7 +113,6 @@ Rectangle {
         anchors.horizontalCenterOffset: -49
         anchors.horizontalCenter: gauge_Speed.horizontalCenter
         fillMode: Image.PreserveAspectFit
-
         transform: Rotation {
             origin.x: 130
             origin.y: 33
@@ -152,7 +120,7 @@ Rectangle {
         }
     }
 
-    //Bottom
+    // --- Bottom Panel UI ---
     Image {
         id: bottomPanel
         x: 291
@@ -240,7 +208,7 @@ Rectangle {
         fillMode: Image.PreserveAspectFit
     }
 
-    // 속도 표시 텍스트
+    // --- Text Displays ---
     TextInput {
         id: textInput3
         x: 546
@@ -253,10 +221,10 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.bold: true
         readOnly: true
+        // speed 값을 그대로 문자열로 변환하여 표시
         text: speed.toString()
     }
 
-    // 기어 상태 표시 텍스트
     TextInput {
         id: textInput4
         x: 125
