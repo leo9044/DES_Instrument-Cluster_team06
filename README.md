@@ -59,7 +59,6 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
     class D,E,F,K,L hardware;
     class G,H,I,J runtime;
     class G app;
-
 ```
 
     
