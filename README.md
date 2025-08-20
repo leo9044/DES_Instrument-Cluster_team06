@@ -4,7 +4,7 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/06e859e9-9b4d-4404-b436-e556d9a8056b" width="600">
+  <img src="https://github.com/user-attachments/assets/06e859e9-9b4d-4404-b436-e556d9a8056b" width="800">
 </p>
 
 
