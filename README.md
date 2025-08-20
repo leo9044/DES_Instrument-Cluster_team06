@@ -17,7 +17,29 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 * **Qt/QML-based UI**: Provides a user-friendly graphical interface designed with Qt Design Studio.
 
 ## System Architecture & Design Decisions
+```mermaid
+graph TD
+    subgraph "Host PC (Development Environment)"
+        A[Qt Creator Project] -- Cross-Compile --> B[Executable File];
+        B -- scp (File Transfer) --> C[Raspberry Pi];
+    end
 
+    subgraph "Raspberry Pi (Runtime Environment)"
+        D[Optical Sensor] -- Pulses --> E[Arduino];
+        E -- CAN Message --> F[CAN Bus];
+        F -- Direct Read --> G[Qt Application (Receiver)];
+
+        H[Python Scripts (Sender)] -- Status Data --> I[D-Bus];
+        I -- Subscribes --> G;
+
+        C -- Executes --> G[Qt Application (Receiver)];
+        G -- Displays --> J[Instrument Cluster GUI];
+    end
+
+    style A fill:#cde4ff,stroke:#333,stroke-width:2px
+    style C fill:#ffb3ba,stroke:#333,stroke-width:2px
+    style G fill:#baffc9,stroke:#333,stroke-width:2px
+```
 ### Data Flow
 
 This project integrates two independent data streams:
