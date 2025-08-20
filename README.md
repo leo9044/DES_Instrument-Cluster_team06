@@ -88,11 +88,31 @@ This project intentionally adopted specific development methodologies to deepen 
 
 1.  **Run Data Senders (on RPi)**: Open a terminal on the Raspberry Pi and run the Python scripts to start publishing data.
     ```bash
-    cd python_scripts/
-    python vehicle_controller.py &
+    cd DES_Instrument-Cluster_team06/
+    source vene/bin/activate
+    cd app/src/sender
     python soc.py &
+    python vehicle_controller.py &
     ```
-2.  **Run GUI Application (from PC)**: Open the project in Qt Creator on your PC, set the Raspberry Pi as the build-and-run target, and execute.
+2. Run GUI Application:
+
+    Cross-Compile (on PC): Build the project in Qt Creator on your PC to generate the executable for the Raspberry Pi.
+
+    Transfer File (from PC): Use the scp command to transfer the generated executable to the Raspberry Pi.
+
+    # Example: scp [built_executable] [pi_username]@[pi_ip_address]:~
+    scp ./build/YourProjectName pi@192.168.1.10:~/
+
+3. Execute (on RPi): SSH into the Raspberry Pi, grant execute permissions to the transferred file, and run it.
+
+    # SSH into the Raspberry Pi
+    ssh pi@192.168.1.10
+
+    # Grant execute permission and run the file
+    chmod +x ~/YourProjectName
+    export DISPLAY=:0
+    ./YourProjectName
+
 
 ## Contributors
 
