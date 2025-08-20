@@ -105,7 +105,7 @@ This project intentionally adopted specific development methodologies to deepen 
 
 3. **Execute (on RPi)**: SSH into the Raspberry Pi, grant execute permissions to the transferred file, and run it.
    ```bash
-   ssh pi@192.168.1.10
+    ssh pi@192.168.1.10
    
     chmod +x ~/YourProjectName
     export DISPLAY=:0
