@@ -17,6 +17,7 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 * **Qt/QML-based UI**: Provides a user-friendly graphical interface designed with Qt Design Studio.
 
 ## System Architecture & Design Decisions
+
 ```mermaid
 graph TD
     subgraph "Host PC (Development Environment)"
