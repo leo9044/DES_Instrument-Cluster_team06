@@ -38,6 +38,7 @@ graph TD
 
     %% Styling
     style G fill:#baffc9,stroke:#333,stroke-width:2px
+    ```
 ### Data Flow
 
 This project integrates two independent data streams:
