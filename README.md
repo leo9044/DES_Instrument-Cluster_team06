@@ -1,240 +1,95 @@
-# 🚗 PiRacer Instrument Cluster
+# PiRacer Digital Instrument Cluster
 
-**A Real-time Digital Dashboard for PiRacer Vehicle**
+This is a real-time digital instrument cluster application for the PiRacer vehicle, developed with Qt. It runs on a Raspberry Pi, receiving vehicle speed data via CAN bus and other data like battery and gear status via D-Bus to display on a GUI.
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi-red.svg)](https://raspberrypi.org)
+*(Insert a screenshot or GIF of the instrument cluster in action here.)*
 
-## 📋 Overview
+## Key Features
 
-This project implements a comprehensive instrument cluster system for the PiRacer AI Kit, featuring:
+* **Real-time Data Visualization**: Displays vehicle speed from the CAN bus on a real-time speedometer.
+* **Vehicle Status Display**: Shows battery state of charge (SOC) received through D-Bus.
+* **Modular Architecture**: Employs a flexible and scalable structure by decoupling the data processing part (Python) from the GUI (Qt/C++) using D-Bus.
+* **Qt/QML-based UI**: Provides a user-friendly graphical interface designed with Qt Design Studio.
 
-- **Real-time Speed Monitoring** via CAN bus communication
-- **Gamepad-controlled Vehicle System** with gear management (P/R/N/D)
-- **OLED Display Interface** with status indicators
-- **Modular Architecture** ready for Qt GUI integration
-- **Performance Optimized** for embedded real-time control
+## System Architecture & Design Decisions
 
-## 🎯 Features
+### Data Flow
 
-### ✅ Core Functionality
-- [x] **Vehicle Control System** - Direct PiRacer hardware control
-- [x] **CAN Bus Communication** - Speed sensor data acquisition  
-- [x] **Gamepad Integration** - ShanWan controller support
-- [x] **Display Management** - OLED status display
-- [x] **Gear System** - Automotive-style transmission (P/R/N/D)
+This project integrates two independent data streams:
 
-### 🚧 Planned Features
-- [ ] **Qt GUI Dashboard** - Professional instrument cluster UI
-- [ ] **Data Logging** - Trip data and diagnostics
-- [ ] **Advanced Filtering** - Kalman filter for smooth data
-- [ ] **Wireless Communication** - Remote monitoring capabilities
+1.  **Real-time Speed Data (Direct CAN Communication)**
+    * **Measurement (Arduino)**: An optical speed sensor connected to an Arduino detects wheel rotation and sends speed data over the CAN bus.
+    * **Reception & Processing (Qt/C++)**: A C++ CAN interface (`caninterface.cpp`) within the Qt application directly receives and processes the real-time speed data from the CAN bus.
 
-## 🏗️ System Architecture
+2.  **Vehicle Status Data (D-Bus IPC)**
+    * **Publishing (Python on RPi)**: Separate Python scripts (`vehicle_controller.py`, `soc.py`) act as D-Bus 'Senders', broadcasting information like battery and gear status.
+    * **Subscribing (Qt/C++)**: The Qt application's D-Bus client (`dbusreceiver.cpp`) acts as a 'Receiver', subscribing to this status data and reflecting it on the GUI.
 
-```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Gamepad       │────│  Main Controller│────│   CAN Interface │
-│   (ShanWan)     │    │   (main.py)     │    │  (Speed Sensor) │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                               │
-                    ┌──────────┼──────────┐
-                    │                     │
-            ┌─────────────────┐    ┌─────────────────┐
-            │ Vehicle Control │    │ Display Control │
-            │  (PiRacer HW)   │    │ (OLED + Qt GUI) │
-            └─────────────────┘    └─────────────────┘
-```
+### Development Decisions
 
-## 🚀 Quick Start
+This project intentionally adopted specific development methodologies to deepen technical understanding.
 
-### Prerequisites
-- **Hardware**: Raspberry Pi 4B + PiRacer AI Kit + ShanWan Gamepad
-- **OS**: Raspberry Pi OS (64-bit recommended)
-- **Python**: 3.8+ with pip
+* **Cross-Compilation Environment**: We adopted a professional embedded development workflow by cross-compiling on a powerful development PC and deploying only the executable to the resource-constrained Raspberry Pi. This significantly reduced build times and maximized productivity.
+* **IPC using D-Bus**: We deliberately separated the data processing logic (Python) from the GUI (Qt/C++) and connected them via D-Bus. The goal was to experience a modular design where multiple, single-responsibility processes communicate, which greatly enhances the system's flexibility and scalability.
 
-### Installation
+## Tech Stack
 
-1. **Clone Repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/DES_Instrument-Cluster.git
-   cd DES_Instrument-Cluster
-   ```
+* **Hardware**:
+    * **Main Controller**: Raspberry Pi 4
+    * **Sensor Controller**: Arduino Uno (ATmega328P)
+    * **CAN Interface**: Keyestudio CAN-BUS Shield (MCP2515 + MCP2551), Seeed Studio 2-Channel CAN-BUS FD Shield
+    * **Sensor**: Optical Speed Sensor
+* **Software**:
+    * **Languages**: C++, Python, QML
+    * **Frameworks / Libraries**: Qt 5, python-can, dbus-python
+    * **IPC (Inter-Process Communication)**: D-Bus
+    * **Build System**: Qt-based Cross-Compilation (PC → Raspberry Pi)
 
-2. **Setup Environment**
-   ```bash
-   chmod +x scripts/setup.sh
-   ./scripts/setup.sh
-   ```
+## Implementation Details
 
-3. **Configure CAN Interface**
-   ```bash
-   sudo modprobe can
-   sudo ip link add dev vcan0 type vcan
-   sudo ip link set up vcan0
-   ```
+### 1. Speed Measurement & CAN Transmission (Arduino)
 
-4. **Run Application**
-   ```bash
-   cd app/src
-   python main.py
-   ```
+* Pulses from the optical speed sensor are counted using an interrupt pin (`D2`) on the Arduino.
+* Inside the `loop()` function, the accumulated pulse count is used to calculate RPM and distance traveled every second, which is then converted to speed in km/h.
+* The Keyestudio CAN-BUS Shield, which uses **MCP2515** (CAN controller) and **MCP2551** (CAN transceiver) chips, encodes and transmits this speed data as a CAN message.
 
-## 📁 Project Structure
+### 2. CAN Data Reception (Qt/C++)
 
-```
-DES_Instrument-Cluster/
-├── README.md              # Main project documentation
-├── LICENSE                # MIT License
-├── .gitignore            # Git ignore rules
-│
-├── docs/                 # Documentation & Diagrams
-│   ├── architecture.md   # System design documentation
-│   ├── hardware_setup.md # Hardware connection guide
-│   └── images/           # Screenshots & diagrams
-│
-├── hardware/             # Hardware Documentation
-│   ├── wiring_diagram.png
-│   └── can_setup.md
-│
-├── app/                  # Main Application
-│   ├── src/              # Source code
-│   │   ├── main.py              # Main controller
-│   │   ├── vehicle_controller.py # PiRacer control
-│   │   ├── can_interface.py     # CAN communication
-│   │   ├── display_controller.py # Display management
-│   │   └── gamepads.py          # Gamepad interface
-│   └── include/          # Header files (for future C++)
-│
-├── test/                 # Test Cases
-│   ├── unit_tests/       # Unit tests
-│   └── integration_tests/ # System tests
-│
-├── scripts/              # Automation Scripts
-│   ├── setup.sh          # Environment setup
-│   └── can_setup.sh      # CAN interface configuration
-│
-├── config/               # Configuration Files
-│   ├── can_config.ini    # CAN bus settings
-│   └── display_config.ini # Display settings
-│
-└── resources/            # GUI Resources
-    ├── icons/            # Application icons
-    ├── fonts/            # Custom fonts
-    └── images/           # UI images
-```
+* The `caninterface.cpp` module in the Qt application is dedicated to receiving CAN data.
+* It uses Linux's SocketCAN interface to connect directly to the CAN bus, filtering and reading messages with the specific CAN ID for speed data.
+* The received raw data is parsed into an actual speed value and then passed to the QML UI using Qt's Signal/Slot mechanism.
 
-## 🛠️ Development
+### 3. Status Data Publishing (Python)
 
-### Core Modules
+* The `vehicle_controller.py` and `soc.py` scripts are responsible for vehicle control status (e.g., gear) and battery status (SOC), respectively.
+* Using the `dbus-python` library, these scripts create unique services and object paths on D-Bus, emitting signals periodically or upon a state change.
 
-#### 🎮 Vehicle Controller (`vehicle_controller.py`)
-- **Purpose**: Direct PiRacer hardware control
-- **Key Features**: Gamepad input processing, gear system, safety limits
-- **Hardware**: Interfaces with PiRacer servo/motor controllers
+### 4. D-Bus Data Subscription (Qt/C++)
 
-#### 📡 CAN Interface (`can_interface.py`)  
-- **Purpose**: Real-time speed data acquisition
-- **Key Features**: Thread-safe CAN communication, data parsing
-- **Protocol**: Standard CAN 2.0B with 500kbps bitrate
+* The `dbusreceiver.cpp` module uses Qt's `QtDBus` module to subscribe to the D-Bus signals emitted by the Python scripts.
+* It connects by targeting specific service names, object paths, and interfaces. When a signal is received, the connected slot function is executed to update the relevant part of the QML UI.
 
-#### 🖥️ Display Controller (`display_controller.py`)
-- **Purpose**: Visual output management
-- **Current**: OLED display (128x32)
-- **Future**: Qt-based GUI dashboard
+## Setup and Execution
 
-#### 🎯 Main Controller (`main.py`)
-- **Purpose**: System integration and coordination
-- **Key Features**: Module lifecycle, error handling, performance optimization
+### 1. Hardware Connection
 
-## 📊 Performance Metrics
+*(Link to detailed instructions to be added)*
 
-- **Control Loop**: 100Hz (10ms cycle time)
-- **CAN Update Rate**: 20Hz (50ms interval) 
-- **Display Refresh**: 2Hz (500ms interval)
-- **Input Latency**: <5ms (gamepad to actuator)
+### 2. Environment Setup
 
-## 🔧 Configuration
+*(Link to detailed instructions to be added)*
 
-### CAN Bus Setup
-```bash
-# Setup virtual CAN for testing
-sudo modprobe vcan
-sudo ip link add dev vcan0 type vcan
-sudo ip link set up vcan0
+### 3. Build and Run
 
-# Setup real CAN interface
-sudo ip link set can0 type can bitrate 500000
-sudo ip link set up can0
-```
+1.  **Run Data Senders (on RPi)**: Open a terminal on the Raspberry Pi and run the Python scripts to start publishing data.
+    ```bash
+    cd python_scripts/
+    python vehicle_controller.py &
+    python soc.py &
+    ```
+2.  **Run GUI Application (from PC)**: Open the project in Qt Creator on your PC, set the Raspberry Pi as the build-and-run target, and execute.
 
-### Gamepad Mapping
-- **Left Stick X**: Steering control
-- **Right Stick Y**: Throttle control
-- **A Button**: Drive (D)
-- **B Button**: Park (P)
-- **X Button**: Neutral (N)
-- **Y Button**: Reverse (R)
+## Contributors
 
-## 🧪 Testing
-
-```bash
-# Run unit tests
-python -m pytest test/unit_tests/
-
-# Run integration tests  
-python -m pytest test/integration_tests/
-
-# Run specific module test
-cd app/src
-python vehicle_controller.py
-```
-
-## 📈 Roadmap
-
-### Phase 1: Core System ✅
-- [x] Basic vehicle control
-- [x] CAN communication
-- [x] OLED display
-- [x] Gamepad integration
-
-### Phase 2: Professional GUI 🚧
-- [ ] Qt-based dashboard
-- [ ] Custom gauge widgets
-- [ ] Professional styling
-- [ ] Multi-display support
-
-### Phase 3: Advanced Features 📋
-- [ ] Data logging system
-- [ ] Diagnostic interface
-- [ ] Remote monitoring
-- [ ] Performance analytics
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **PiRacer Team** - Hardware platform and Python library
-- **Team4 & Team7** - Reference implementations and inspiration
-- **Lagavulin9** - C++ PiRacer implementation reference
-
-## 📞 Contact
-
-- **Project Repository**: [GitHub Link]
-- **Documentation**: [Wiki Link]
-- **Issues**: [GitHub Issues]
-
----
-
-**⚡ Built with passion for embedded systems and automotive technology**
+* **[Your Name]** - ([Your Role, e.g., System Architecture, Qt Development])
+* **[Teammate's Name]** - ([Their Role])
