@@ -44,7 +44,7 @@ graph TD
         G["<i class='fab fa-raspberry-pi'></i> <b>Qt Application</b>"]
         J["<i class='fas fa-desktop'></i> GUI Display"]
 
-        B -- "<i class='fas fa-file-upload'></i> scp" -.-> G
+        B -.-> |"<i class='fas fa-file-upload'></i> scp"| G
         F -- Real-time Speed --> G
         I -- Subscribes --> G
         G -- Renders --> J
