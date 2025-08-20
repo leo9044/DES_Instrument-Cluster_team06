@@ -20,25 +20,46 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 
 ```mermaid
 graph TD
+    %% FontAwesome 아이콘을 사용하기 위한 선언
+    %% ---
+
     subgraph "Host PC (Development Environment)"
-        A[Qt Creator Project] -- Cross-Compile --> B[Executable File]
-        B -- scp --> C[Raspberry Pi]
+        direction LR
+        A["<i class='fas fa-laptop-code'></i> Qt Creator Project"] -- Cross-Compile --> B["<i class='fas fa-cogs'></i> Executable File"]
     end
 
-    subgraph "Raspberry Pi (Runtime Environment)"
-        D[Optical Sensor] --> E[Arduino]
-        E --> F[CAN Bus]
-        F --> G[Qt Application]
+    subgraph "Hardware"
+        direction LR
+        D["<i class='fas fa-tachometer-alt'></i> Optical Sensor"] --> E["<i class='fab fa-arduino'></i> Arduino"]
+        E -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
+    end
+
+    subgraph "Raspberry Pi (Runtime)"
+        direction TB
+        subgraph "Data Sources"
+            direction LR
+            H["<i class='fab fa-python'></i> Python Scripts"] -- Status Data --> I{{"<i class='fas fa-database'></i> D-Bus"}}
+        end
         
-        H[Python Scripts] --> I[D-Bus]
-        I --> G
-        
-        C -- Executes --> G
-        G --> J[GUI Display]
+        G["<i class='fab fa-raspberry-pi'></i> <b>Qt Application</b>"]
+        J["<i class='fas fa-desktop'></i> GUI Display"]
+
+        B -- "<i class='fas fa-file-upload'></i> scp" -.-> G
+        F -- Real-time Speed --> G
+        I -- Subscribes --> G
+        G -- Renders --> J
     end
 
     %% Styling
-    style G fill:#baffc9,stroke:#333,stroke-width:2px
+    classDef host fill:#e3f2fd,stroke:#333,stroke-width:2px;
+    classDef hardware fill:#fff3e0,stroke:#333,stroke-width:2px;
+    classDef runtime fill:#e8f5e9,stroke:#333,stroke-width:2px;
+    classDef app fill:#c8e6c9,stroke:#1b5e20,stroke-width:4px;
+
+    class A,B host;
+    class D,E,F hardware;
+    class G,H,I,J runtime;
+    class G app;
 ```
 
     
