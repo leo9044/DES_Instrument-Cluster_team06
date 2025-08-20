@@ -18,34 +18,33 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 
 ## System Architecture & Design Decisions
 
-```mermaid
-graph TD
-    %% FontAwesome 아이콘을 사용하기 위한 선언
-    %% ---
-
+```graph TD
     subgraph "Laptop (Host PC)"
         direction LR
         A["<i class='fas fa-laptop-code'></i> Qt Creator Project"] -- Cross-Compile --> B["<i class='fas fa-cogs'></i> Executable File"]
     end
 
-    subgraph "Hardware"
+    subgraph "Hardware & Sensors"
         direction LR
         D["<i class='fas fa-tachometer-alt'></i> Optical Sensor"] --> E["<i class='fab fa-arduino'></i> Arduino"]
-        E -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
+        E -- "<i class='fas fa-microchip'></i> SPI" --> K["MCP2515<br/>(CAN Controller on Shield)"]
+        K -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
+        L["<i class='fas fa-battery-half'></i> I2C Sensor<br/>(e.g., Battery Monitor)"]
     end
 
     subgraph "Raspberry Pi (Target PC)"
         direction TB
-        subgraph "Server"
+        subgraph "Data Sources (Server)"
             direction LR
             H["<i class='fab fa-python'></i> Python Scripts"] -- Status Data --> I{{"<i class='fas fa-database'></i> D-Bus"}}
         end
         
-        G["<i class='fab fa-raspberry-pi'></i> <b>Qt Application</b>"]
+        G["<i class='fab fa-raspberry-pi'></i> <b>Qt Application</b> (Client)"]
         J["<i class='fas fa-desktop'></i> GUI Display"]
 
         B -.-> |"<i class='fas fa-file-upload'></i> scp"| G
-        F -- Real-time Speed --> G
+        L -- "<i class='fas fa-microchip'></i> I2C Read" --> H
+        F -- "<i class='fas fa-network-wired'></i> CAN Socket API" --> G
         I -- Subscribes --> G
         G -- Renders --> J
     end
@@ -57,9 +56,10 @@ graph TD
     classDef app fill:#c8e6c9,stroke:#1b5e20,stroke-width:4px;
 
     class A,B host;
-    class D,E,F hardware;
+    class D,E,F,K,L hardware;
     class G,H,I,J runtime;
     class G app;
+
 ```
 
     
