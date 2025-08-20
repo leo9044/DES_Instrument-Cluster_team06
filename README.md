@@ -27,10 +27,10 @@ graph TD
 
     subgraph "Hardware & Sensors"
         direction LR
-        D["<i class='fas fa-tachometer-alt'></i> Optical Sensor"] --> E["<i class='fab fa-arduino'></i> Arduino"]
-        E -- "<i class='fas fa-microchip'></i> SPI" --> K["MCP2515<br/>(CAN Controller on Shield)"]
+        D["<i class='fas fa-tachometer-alt'></i> Optical Sensor"] -- Interrupt Pulse --> E["<i class='fab fa-arduino'></i> Arduino"]
+        E -- "<i class='fas fa-microchip'></i> SPI" --> K["MCP2515<br/>(CAN Controller)"]
         K -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
-        L["<i class='fas fa-battery-half'></i> I2C Sensor<br/>(e.g., Battery Monitor)"]
+        L["<i class='fas fa-battery-half'></i> INA219<br/>(Battery Monitor)"]
     end
 
     subgraph "Raspberry Pi (Target PC)"
@@ -45,7 +45,7 @@ graph TD
 
         B -.-> |"<i class='fas fa-file-upload'></i> scp"| G
         L -- "<i class='fas fa-microchip'></i> I2C Read" --> H
-        F -- "<i class='fas fa-network-wired'></i> CAN Socket API" --> G
+        F -- "<i class='fas fa-network-wired'></i> SocketCAN API" --> G
         I -- Subscribes --> G
         G -- Renders --> J
     end
