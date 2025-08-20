@@ -30,7 +30,7 @@ graph TD
         D["<i class='fas fa-tachometer-alt'></i> Optical Sensor"] -- Interrupt Pulse --> E["<i class='fab fa-arduino'></i> Arduino"]
         E -- "<i class='fas fa-microchip'></i> SPI" --> K["MCP2515<br/>(CAN Controller)"]
         K -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
-        L["<i class='fas fa-battery-half'></i> INA219<br/>(INA219)"]
+        L["<i class='fas fa-battery-half'></i> INA219<br/>(Battery Monitor)"]
     end
 
     subgraph "Raspberry Pi (Target PC)"
