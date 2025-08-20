@@ -2,7 +2,7 @@
 
 This is a real-time digital instrument cluster application for the PiRacer vehicle, developed with Qt. It runs on a Raspberry Pi, receiving vehicle speed data via CAN bus and other data like battery and gear status via D-Bus to display on a GUI.
 
-*(Insert a screenshot or GIF of the instrument cluster in action here.)*
+
 ![UI_test](https://github.com/user-attachments/assets/06e859e9-9b4d-4404-b436-e556d9a8056b)
 
 
