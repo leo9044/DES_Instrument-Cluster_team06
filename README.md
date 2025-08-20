@@ -25,21 +25,29 @@ graph TD
     end
 
     subgraph "Raspberry Pi (Runtime Environment)"
-        D[Optical Sensor] -- Pulses --> E[Arduino];
-        E -- CAN Message --> F[CAN Bus];
-        F -- Direct Read --> G[Qt Application (Receiver)];
-
-        H[Python Scripts (Sender)] -- Status Data --> I[D-Bus];
-        I -- Subscribes --> G;
-
-        C -- Executes --> G[Qt Application (Receiver)];
-        G -- Displays --> J[Instrument Cluster GUI];
+        %% Node Definitions
+        D[Optical Sensor]
+        E[Arduino]
+        F[CAN Bus]
+        H[Python Scripts<br/>(Sender)]
+        I[D-Bus]
+        G[Qt Application<br/>(Receiver)]
+        J[Instrument Cluster GUI]
+        
+        %% Connections
+        C -- Executes --> G
+        D -- Pulses --> E
+        E -- CAN Message --> F
+        F -- Direct Read --> G
+        H -- Status Data --> I
+        I -- Subscribes --> G
+        G -- Displays --> J
     end
 
+    %% Styling
     style A fill:#cde4ff,stroke:#333,stroke-width:2px
     style C fill:#ffb3ba,stroke:#333,stroke-width:2px
     style G fill:#baffc9,stroke:#333,stroke-width:2px
-```
 ### Data Flow
 
 This project integrates two independent data streams:
