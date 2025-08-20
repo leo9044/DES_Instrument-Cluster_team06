@@ -20,33 +20,23 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 ```mermaid
 graph TD
     subgraph "Host PC (Development Environment)"
-        A[Qt Creator Project] -- Cross-Compile --> B[Executable File];
-        B -- scp (File Transfer) --> C[Raspberry Pi];
+        A[Qt Creator Project] -- Cross-Compile --> B[Executable File]
+        B -- scp --> C[Raspberry Pi]
     end
 
     subgraph "Raspberry Pi (Runtime Environment)"
-        %% Node Definitions
-        D[Optical Sensor]
-        E[Arduino]
-        F[CAN Bus]
-        H[Python Scripts<br/>(Sender)]
-        I[D-Bus]
-        G[Qt Application<br/>(Receiver)]
-        J[Instrument Cluster GUI]
+        D[Optical Sensor] --> E[Arduino]
+        E --> F[CAN Bus]
+        F --> G[Qt Application]
         
-        %% Connections
+        H[Python Scripts] --> I[D-Bus]
+        I --> G
+        
         C -- Executes --> G
-        D -- Pulses --> E
-        E -- CAN Message --> F
-        F -- Direct Read --> G
-        H -- Status Data --> I
-        I -- Subscribes --> G
-        G -- Displays --> J
+        G --> J[GUI Display]
     end
 
     %% Styling
-    style A fill:#cde4ff,stroke:#333,stroke-width:2px
-    style C fill:#ffb3ba,stroke:#333,stroke-width:2px
     style G fill:#baffc9,stroke:#333,stroke-width:2px
 ### Data Flow
 
