@@ -96,5 +96,5 @@ This project intentionally adopted specific development methodologies to deepen 
 
 ## Contributors
 
-* **[Your Name]** - ([Your Role, e.g., System Architecture, Qt Development])
-* **[Teammate's Name]** - ([Their Role])
+* **JAEHONG LIM** - ([Your Role, e.g., System Architecture, Qt Development])
+* **SIWOO LEE** - ([Their Role])
