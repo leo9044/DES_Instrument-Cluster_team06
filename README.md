@@ -36,7 +36,7 @@ graph TD
 
     subgraph "Raspberry Pi (Runtime)"
         direction TB
-        subgraph "Data Sources"
+        subgraph "Server"
             direction LR
             H["<i class='fab fa-python'></i> Python Scripts"] -- Status Data --> I{{"<i class='fas fa-database'></i> D-Bus"}}
         end
