@@ -98,15 +98,19 @@ This project intentionally adopted specific development methodologies to deepen 
     Cross-Compile (on PC): Build the project in Qt Creator on your PC to generate the executable for the Raspberry Pi.
 
     Transfer File (from PC): Use the scp command to transfer the generated executable to the Raspberry Pi.
-    Example: scp [built_executable] [pi_username]@[pi_ip_address]:~
-    scp ./build/YourProjectName pi@192.168.1.10:~/
+    Example:
+    ```bash
+    scp [built_executable] [pi_username]@[pi_ip_address]:~
+    ```
 
 3. **Execute (on RPi)**: SSH into the Raspberry Pi, grant execute permissions to the transferred file, and run it.
-    ssh pi@192.168.1.10
-
+   ```bash
+   ssh pi@192.168.1.10
+   
     chmod +x ~/YourProjectName
     export DISPLAY=:0
     ./YourProjectName
+   ```
 
 
 ## Contributors
