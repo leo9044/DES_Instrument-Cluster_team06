@@ -23,7 +23,7 @@ graph TD
     %% FontAwesome 아이콘을 사용하기 위한 선언
     %% ---
 
-    subgraph "Host PC (Development Environment)"
+    subgraph "Laptop (Host PC)"
         direction LR
         A["<i class='fas fa-laptop-code'></i> Qt Creator Project"] -- Cross-Compile --> B["<i class='fas fa-cogs'></i> Executable File"]
     end
