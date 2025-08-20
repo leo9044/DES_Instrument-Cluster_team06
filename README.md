@@ -18,7 +18,8 @@ This is a real-time digital instrument cluster application for the PiRacer vehic
 
 ## System Architecture & Design Decisions
 
-```graph TD
+```mermaid
+graph TD
     subgraph "Laptop (Host PC)"
         direction LR
         A["<i class='fas fa-laptop-code'></i> Qt Creator Project"] -- Cross-Compile --> B["<i class='fas fa-cogs'></i> Executable File"]
