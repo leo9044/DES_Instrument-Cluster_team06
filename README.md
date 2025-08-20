@@ -34,7 +34,7 @@ graph TD
         E -- CAN Message --> F[("<i class='fas fa-bus'></i> CAN Bus")]
     end
 
-    subgraph "Raspberry Pi (Runtime)"
+    subgraph "Raspberry Pi (Target PC)"
         direction TB
         subgraph "Server"
             direction LR
