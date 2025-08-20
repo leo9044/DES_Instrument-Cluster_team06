@@ -51,8 +51,8 @@ This project intentionally adopted specific development methodologies to deepen 
 
 ### 1. Speed Measurement & CAN Transmission (Arduino)
 
-* Pulses from the optical speed sensor are counted using an interrupt pin (`D2`) on the Arduino.
-* Inside the `loop()` function, the accumulated pulse count is used to calculate RPM and distance traveled every second, which is then converted to speed in km/h.
+* Pulses from the optical speed sensor are counted using an interrupt pin (`3`) on the Arduino.
+* Inside the `loop()` function, the accumulated pulse count is used to calculate RPM and distance traveled every 100ms, which is then converted to speed in cm/s.
 * The Keyestudio CAN-BUS Shield, which uses **MCP2515** (CAN controller) and **MCP2551** (CAN transceiver) chips, encodes and transmits this speed data as a CAN message.
 
 ### 2. CAN Data Reception (Qt/C++)
