@@ -1,65 +1,60 @@
-# Environment Setup Guide
+# Hardware Connection Guide
 
-This guide covers the setup process for both the Raspberry Pi (Target) and the Host PC (Development) to run the project.
+This document describes how to assemble and connect the hardware components for the **PiRacer Instrument Cluster** project.
 
-## 1. Raspberry Pi (Target PC) Setup
+---
 
-### Step 1: Install Raspberry Pi OS
-Install the latest version of **Raspberry Pi OS (64-bit)** on an SD card and boot the Raspberry Pi.
+## 1. Required Components
+- **Vehicle Body**: PiRacer Standard Kit  
+- **Main Controller**: Raspberry Pi 4  
+- **Sensor Controller**: Arduino Uno  
+- **CAN Interface**:  
+  - Raspberry Pi: Waveshare 2-Channel CAN FD HAT  
+  - Arduino: Seeed Studio CAN-BUS Shield V2.0  
+- **Sensor**: Optical Speed Sensor (LM393)  
+- **Display**: 5-inch HDMI Touchscreen (or similar)  
+- **Cables**: Jumper wires, USB cable, etc.  
 
-### Step 2: Basic Configuration
-Connect to the Raspberry Pi via SSH. Open the configuration tool:
-```bash
-sudo raspi-config
-```
-Navigate to `3 Interface Options` and enable:
-* `I2C`
-* `SPI`
-* `SSH`
+---
 
-### Step 3: Install Dependencies
-Update your system and install the required libraries.
-```bash
-sudo apt update && sudo apt upgrade
-sudo apt install python3-venv git
-```
+## 2. Assembly and Wiring
 
-### Step 4: Setup Project and Python Virtual Environment
-Clone the project repository from GitHub and set up a Python virtual environment.
-```bash
-git clone [https://github.com/leo9044/DES_Instrument-Cluster_team06.git](https://github.com/leo9044/DES_Instrument-Cluster_team06.git)
-cd DES_Instrument-Cluster_team06/
-python3 -m venv venv
-source venv/bin/activate
+### Step 1: Assemble the PiRacer Vehicle
+- Assemble the PiRacer vehicle according to the official manual.  
+- Mount the Raspberry Pi on the vehicle chassis.  
 
-# Install required Python packages
-pip install dbus-python piracer gamepads PyGObject
-```
+### Step 2: Connect the CAN HAT to Raspberry Pi
+- Mount the **Waveshare 2-Channel CAN FD HAT** directly onto the Raspberry Pi's 40-pin GPIO header.  
 
-## 2. Host PC (Development) Setup
+### Step 3: Connect the CAN Shield to Arduino
+- Mount the **Seeed Studio CAN-BUS Shield V2.0** onto the Arduino Uno.  
 
-### Step 1: Install Qt and Qt Creator
-Download and install the open-source version of **Qt** (e.g., Qt 5.15.2) and **Qt Creator** from the official Qt website.
+### Step 4: Wire the Speed Sensor to Arduino
+Connect the **LM393 optical speed sensor** to the Arduino's CAN Shield:
 
-### Step 2: Set Up Cross-Compilation Toolchain
-To compile code for the Raspberry Pi (ARM architecture) on your PC (x86 architecture), you need a cross-compilation toolchain.
+| LM393 Pin | Arduino Shield Connection |
+|-----------|----------------------------|
+| VCC       | 5V                        |
+| GND       | GND                       |
+| DO        | D3 (Interrupt Pin)        |
 
-*(This is a complex topic. It's highly recommended to create a separate, detailed guide for this and link it here.)*
+### Step 5: Connect the CAN Bus
+Connect the CAN_H and CAN_L pins between the Raspberry Pi's CAN HAT and the Arduino's CAN Shield:
 
-**For a detailed guide, see [Cross-Compilation Setup Guide](./Cross_Compilation_Guide.md).**
+| Raspberry Pi (CAN HAT) | Arduino (CAN Shield) |
+|-------------------------|-----------------------|
+| CAN0_H                 | CAN_H                |
+| CAN0_L                 | CAN_L                |
+| GND                    | GND (shared ground)  |
 
-A brief overview of the steps:
-1.  Download the ARM toolchain.
-2.  Synchronize the Raspberry Pi's `sysroot` to your Host PC.
-3.  Configure a new "Kit" in Qt Creator that uses the cross-compiler and the synchronized sysroot.
+> ⚡ **Note:** Always connect a common ground between Raspberry Pi and Arduino for reliable communication.
 
-## 3. Arduino Setup
+### Step 6: Connect the Display
+- Connect the display to the Raspberry Pi's HDMI port.  
+- Power the display via USB.  
 
-### Step 1: Install Arduino IDE
-Download and install the **Arduino IDE** on your Host PC.
+---
 
-### Step 2: Install MCP2515 Library
-In the Arduino IDE, go to `Sketch > Include Library > Manage Libraries...` and install the library for the MCP2515 CAN controller (e.g., "MCP2515 by autowp").
+## 3. Final Assembled View
+Below is an image of the fully assembled and wired hardware (to be added):
 
-### Step 3: Upload the Sketch
-Connect the Arduino to your PC via USB, select the correct board and port in the IDE, and upload the sketch located in the `arduino_speed_sensor/` directory of this project.
