@@ -2,18 +2,15 @@
 
 This is a real-time digital instrument cluster application for the PiRacer vehicle, developed with Qt. It runs on a Raspberry Pi, receiving vehicle speed data via CAN bus and other data like battery and gear status via D-Bus to display on a GUI.
 
-
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/06e859e9-9b4d-4404-b436-e556d9a8056b" width="800">
+<img src="https://github.com/user-attachments/assets/06e859e9-9b4d-4404-b436-e556d9a8056b" width="800">
 </p>
-
-
 
 ## Key Features
 
 * **Real-time Data Visualization**: Displays vehicle speed from the CAN bus on a real-time speedometer.
-* **Vehicle Status Display**: Shows battery state of charge (SOC) received through D-Bus.
-* **Modular Architecture**: Employs a flexible and scalable structure by decoupling the data processing part (Python) from the GUI (Qt/C++) using D-Bus.
+* **Vehicle Status Display**: Shows battery state of charge (SOC), charging current, and current gear (`P`, `N`, `R`, `D`) received through D-Bus.
+* **Modular IPC Architecture**: Employs a flexible and scalable structure by decoupling the data processing part (Python) from the GUI (Qt/C++) using D-Bus.
 * **Qt/QML-based UI**: Provides a user-friendly graphical interface designed with Qt Design Studio.
 
 ## System Architecture & Design Decisions
@@ -62,7 +59,6 @@ graph TD
     class G app;
 ```
 
-    
 ### Data Flow
 
 This project integrates two independent data streams:
@@ -86,12 +82,14 @@ This project intentionally adopted specific development methodologies to deepen 
 
 * **Hardware**:
     * **Main Controller**: Raspberry Pi 4
-    * **Sensor Controller**: Arduino Uno (ATmega328P)
-    * **CAN Interface**: Keyestudio CAN-BUS Shield (MCP2515 + MCP2551), Seeed Studio 2-Channel CAN-BUS FD Shield
-    * **Sensor**: Optical Speed Sensor
+    * **Sensor Controller**: Arduino Uno
+    * **CAN Interface**:
+        * **Raspberry Pi**: Waveshare 2-Channel CAN FD HAT
+        * **Arduino**: Seeed Studio CAN-BUS Shield V2.0
+    * **Sensor**: Optical Speed Sensor (LM393)
 * **Software**:
     * **Languages**: C++, Python, QML
-    * **Frameworks / Libraries**: Qt 5, python-can, dbus-python
+    * **Frameworks / Libraries**: Qt 5, dbus-python, piracer, gamepads, PyGObject
     * **IPC (Inter-Process Communication)**: D-Bus
     * **Build System**: Qt-based Cross-Compilation (PC → Raspberry Pi)
 
@@ -101,7 +99,7 @@ This project intentionally adopted specific development methodologies to deepen 
 
 * Pulses from the optical speed sensor are counted using an interrupt pin (`3`) on the Arduino.
 * Inside the `loop()` function, the accumulated pulse count is used to calculate RPM and distance traveled every 100ms, which is then converted to speed in cm/s.
-* The Keyestudio CAN-BUS Shield, which uses **MCP2515** (CAN controller) and **MCP2551** (CAN transceiver) chips, encodes and transmits this speed data as a CAN message.
+* The Seeed Studio CAN-BUS Shield, which uses **MCP2515** (CAN controller) and **MCP2551** (CAN transceiver) chips, encodes and transmits this speed data as a CAN message.
 
 ### 2. CAN Data Reception (Qt/C++)
 
@@ -131,34 +129,32 @@ This project intentionally adopted specific development methodologies to deepen 
 
 ### 3. Build and Run
 
-1.  **Run Data Senders (on RPi)**: Open a terminal on the Raspberry Pi and run the Python scripts to start publishing data.
+1.  **Run Data Senders (on RPi)**: Open a terminal on the Raspberry Pi, activate the virtual environment, and run the Python scripts in the background.
     ```bash
     cd DES_Instrument-Cluster_team06/
-    source vene/bin/activate
+    source venv/bin/activate
     cd app/src/sender
     python soc.py &
     python vehicle_controller.py &
     ```
-2. **Run GUI Application**:
-    Cross-Compile (on PC): Build the project in Qt Creator on your PC to generate the executable for the Raspberry Pi.
 
-    Transfer File (from PC): Use the scp command to transfer the generated executable to the Raspberry Pi.
-    Example:
-    ```bash
-    scp [built_executable] [pi_username]@[pi_ip_address]:~
-    ```
-
-3. **Execute (on RPi)**: SSH into the Raspberry Pi, grant execute permissions to the transferred file, and run it.
-   ```bash
-    ssh pi@192.168.1.10
-   
-    chmod +x ~/YourProjectName
-    export DISPLAY=:0
-    ./YourProjectName
-   ```
-
+2.  **Run GUI Application**:
+    1.  **Cross-Compile (on PC)**: Build the project in Qt Creator on your PC to generate the executable for the Raspberry Pi.
+    2.  **Transfer File (from PC)**: Use the `scp` command to transfer the generated executable to the Raspberry Pi.
+        ```bash
+        # Example: scp [path_to_executable] [pi_username]@[pi_ip_address]:~
+        scp ./YourProjectName pi@192.168.1.10:~/
+        ```
+    3.  **Execute (on RPi)**: SSH into the Raspberry Pi, grant execute permissions, set the display environment variable, and run the application.
+        ```bash
+        ssh pi@192.168.1.10
+        
+        chmod +x ~/YourProjectName
+        export DISPLAY=:0
+        ./YourProjectName
+        ```
 
 ## Contributors
 
-* **JAEHONG LIM** - ([Your Role, e.g., System Architecture, Qt Development])
-* **SIWOO LEE** - ([Their Role])
+* **JAEHONG LIM** - (System Architecture, Qt C++ Backend, Python/Arduino Development)
+* **SIWOO LEE** - (Hardware Assembly, Qt GUI Development)
