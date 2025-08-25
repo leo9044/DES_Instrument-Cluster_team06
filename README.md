@@ -121,11 +121,11 @@ This project intentionally adopted specific development methodologies to deepen 
 
 ### 1. Hardware Connection
 
-*(Link to detailed instructions to be added)*
+**[Hardware Connection Guide](./docs/Hardware_Connection.md)**.
 
 ### 2. Environment Setup
 
-*(Link to detailed instructions to be added)*
+**[Environment Setup Guide](./docs/Environment_Setup.md)**.
 
 ### 3. Build and Run
 
