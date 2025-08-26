@@ -15,29 +15,39 @@ This document describes how to assemble and connect the hardware components for 
     
 - **Sensor Controller**: Arduino Uno
 
-![KakaoTalk_20250826_094053836_02](https://github.com/user-attachments/assets/2f14ed6e-b506-4800-9e43-972326081ff2)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2f14ed6e-b506-4800-9e43-972326081ff2" width="300">
+</p>
 
     
 - **CAN Interface**:  
   - Raspberry Pi: Waveshare 2-Channel CAN FD HAT
   
- ![KakaoTalk_20250826_094053836_03](https://github.com/user-attachments/assets/74b19580-0f2a-4954-b00a-b9d390de5996)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/74b19580-0f2a-4954-b00a-b9d390de5996" width="300">
+</p>
 
     
   - Arduino: Seeed Studio CAN-BUS Shield V2.0
 
- ![KakaoTalk_20250826_094053836_04](https://github.com/user-attachments/assets/193ea418-48c4-4b80-9046-8398a165c51b)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/193ea418-48c4-4b80-9046-8398a165c51b" width="300">
+</p>
 
    
 - **Sensor**: Optical Speed Sensor (LM393)
 
-![KakaoTalk_20250826_094053836_05](https://github.com/user-attachments/assets/66e8fc87-850e-4011-b0b9-73c73e595d43)
-![KakaoTalk_20250826_094053836_06](https://github.com/user-attachments/assets/6d50698e-1ed3-419c-a93d-77677b933da2)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/66e8fc87-850e-4011-b0b9-73c73e595d43" width="250">
+  <img src="https://github.com/user-attachments/assets/6d50698e-1ed3-419c-a93d-77677b933da2" width="250">
+</p>
 
   
 - **Display**: 7.9-inch HDMI Touchscreen
 
-![KakaoTalk_20250826_094053836](https://github.com/user-attachments/assets/ea60256e-6bf8-4788-b318-3a157b835703)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ea60256e-6bf8-4788-b318-3a157b835703" width="300">
+</p>
 
   
 - **Cables**: Jumper wires, USB cable, etc.  
@@ -50,7 +60,9 @@ This document describes how to assemble and connect the hardware components for 
 - Assemble the PiRacer vehicle according to the official manual.  
 - Mount the Raspberry Pi on the vehicle chassis.
 
-![piracer](https://github.com/user-attachments/assets/08fda6d6-4656-48bc-b1d3-4d135bc5ff80)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/08fda6d6-4656-48bc-b1d3-4d135bc5ff80" width="300">
+</p>
 
 
 ### Step 2: Connect the CAN HAT to Raspberry Pi
