@@ -9,8 +9,9 @@ This document describes how to assemble and connect the hardware components for 
   
 - **Main Controller**: Raspberry Pi 4
 
-![KakaoTalk_20250826_094053836_01](https://github.com/user-attachments/assets/36207a70-9fda-41d7-b023-aa7a00e325bb)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/36207a70-9fda-41d7-b023-aa7a00e325bb" width="500">
+</p>
     
 - **Sensor Controller**: Arduino Uno
 
