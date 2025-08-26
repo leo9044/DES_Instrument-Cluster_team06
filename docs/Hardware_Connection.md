@@ -102,11 +102,15 @@ This document describes how to assemble and connect the hardware components for 
 ### Step 4: Wire the Speed Sensor to Arduino
 Connect the **LM393 optical speed sensor** to the Arduino's CAN Shield:
 
-                | LM393 Pin | Arduino Shield Connection |
-                |-----------|----------------------------|
-                | VCC       | 5V                        |
-                | GND       | GND                       |
-                | DO        | D3 (Interrupt Pin)        |
+<div align="center">
+  
+| LM393 Pin | Arduino Shield Connection |
+|-----------|----------------------------|
+| VCC       | 5V                        |
+| GND       | GND                       |
+| DO        | D3 (Interrupt Pin)        |
+
+</div>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5c97722f-3573-4e05-875d-fe1345cee716" width="300">
@@ -117,11 +121,16 @@ Connect the **LM393 optical speed sensor** to the Arduino's CAN Shield:
 ### Step 5: Connect the CAN Bus
 Connect the CAN_H and CAN_L pins between the Raspberry Pi's CAN HAT and the Arduino's CAN Shield:
 
-                | Raspberry Pi (CAN HAT) | Arduino (CAN Shield) |
-                |-------------------------|-----------------------|
-                | CAN0_H                 | CAN_H                |
-                | CAN0_L                 | CAN_L                |
-                | GND                    | GND (shared ground)  |
+<div align="center">
+
+| Raspberry Pi (CAN HAT) | Arduino (CAN Shield) |
+|-------------------------|-----------------------|
+| CAN0_H                 | CAN_H                |
+| CAN0_L                 | CAN_L                |
+| GND                    | GND (shared ground)  |
+
+</div>
+
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e3686275-35cf-4f0c-b414-8311b3be21e7" width="300">
