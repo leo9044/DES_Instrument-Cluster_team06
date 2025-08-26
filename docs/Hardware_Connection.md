@@ -5,14 +5,34 @@ This document describes how to assemble and connect the hardware components for 
 ---
 
 ## 1. Required Components
-- **Vehicle Body**: PiRacer Standard Kit  
-- **Main Controller**: Raspberry Pi 4  
-- **Sensor Controller**: Arduino Uno  
+- **Vehicle Body**: PiRacer Standard Kit
+  
+- **Main Controller**: Raspberry Pi 4
+![KakaoTalk_20250826_094053836_01](https://github.com/user-attachments/assets/36207a70-9fda-41d7-b023-aa7a00e325bb)
+
+    
+- **Sensor Controller**: Arduino Uno
+![KakaoTalk_20250826_094053836_02](https://github.com/user-attachments/assets/2f14ed6e-b506-4800-9e43-972326081ff2)
+
+    
 - **CAN Interface**:  
-  - Raspberry Pi: Waveshare 2-Channel CAN FD HAT  
-  - Arduino: Seeed Studio CAN-BUS Shield V2.0  
-- **Sensor**: Optical Speed Sensor (LM393)  
-- **Display**: 7.9-inch HDMI Touchscreen 
+  - Raspberry Pi: Waveshare 2-Channel CAN FD HAT
+ ![KakaoTalk_20250826_094053836_03](https://github.com/user-attachments/assets/74b19580-0f2a-4954-b00a-b9d390de5996)
+
+    
+  - Arduino: Seeed Studio CAN-BUS Shield V2.0
+ ![KakaoTalk_20250826_094053836_04](https://github.com/user-attachments/assets/193ea418-48c4-4b80-9046-8398a165c51b)
+
+   
+- **Sensor**: Optical Speed Sensor (LM393)
+![KakaoTalk_20250826_094053836_05](https://github.com/user-attachments/assets/66e8fc87-850e-4011-b0b9-73c73e595d43)
+![KakaoTalk_20250826_094053836_06](https://github.com/user-attachments/assets/6d50698e-1ed3-419c-a93d-77677b933da2)
+
+  
+- **Display**: 7.9-inch HDMI Touchscreen
+![KakaoTalk_20250826_094053836](https://github.com/user-attachments/assets/ea60256e-6bf8-4788-b318-3a157b835703)
+
+  
 - **Cables**: Jumper wires, USB cable, etc.  
 
 ---
