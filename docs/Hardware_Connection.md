@@ -39,7 +39,7 @@ This document describes how to assemble and connect the hardware components for 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/66e8fc87-850e-4011-b0b9-73c73e595d43" width="250">
-  <img src="https://github.com/user-attachments/assets/6d50698e-1ed3-419c-a93d-77677b933da2" width="250">
+  <img src="https://github.com/user-attachments/assets/6d50698e-1ed3-419c-a93d-77677b933da2" width="120">
 </p>
 
   
