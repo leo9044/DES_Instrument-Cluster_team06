@@ -12,7 +12,7 @@ This document describes how to assemble and connect the hardware components for 
   - Raspberry Pi: Waveshare 2-Channel CAN FD HAT  
   - Arduino: Seeed Studio CAN-BUS Shield V2.0  
 - **Sensor**: Optical Speed Sensor (LM393)  
-- **Display**: 5-inch HDMI Touchscreen (or similar)  
+- **Display**: 7.9-inch HDMI Touchscreen 
 - **Cables**: Jumper wires, USB cable, etc.  
 
 ---
@@ -21,7 +21,10 @@ This document describes how to assemble and connect the hardware components for 
 
 ### Step 1: Assemble the PiRacer Vehicle
 - Assemble the PiRacer vehicle according to the official manual.  
-- Mount the Raspberry Pi on the vehicle chassis.  
+- Mount the Raspberry Pi on the vehicle chassis.
+
+![piracer](https://github.com/user-attachments/assets/08fda6d6-4656-48bc-b1d3-4d135bc5ff80)
+
 
 ### Step 2: Connect the CAN HAT to Raspberry Pi
 - Mount the **Waveshare 2-Channel CAN FD HAT** directly onto the Raspberry Pi's 40-pin GPIO header.  
