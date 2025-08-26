@@ -19,7 +19,7 @@ Navigate to `3 Interface Options` and **Enable** the following interfaces:
 ### Step 3: Configure Hardware Overlays (`config.txt`)
 You need to modify the system config file to enable the CAN HAT and the DSI display.
 ```bash
-sudo nano /boot/config.txt
+sudo nano /boot/firmware/config.txt
 ```
 Add the following lines to the end of the file:
 ```
