@@ -119,6 +119,7 @@ nano scripts/config.sh
 
 # 6. Monitor logs (in a separate terminal)
 ./scripts/monitor.sh MyQtApp.log -f
+```
 
 
 ## References
