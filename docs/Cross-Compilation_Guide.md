@@ -120,3 +120,11 @@ nano scripts/config.sh
 # 6. Monitor logs (in a separate terminal)
 ./scripts/monitor.sh MyQtApp.log -f
 
+
+## References
+
+* **Official CMake Documentation**: For a foundational understanding of the variables and principles involved.
+  * [CMake Toolchains Documentation](https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html)
+
+* **Community Guide**: A similar workflow for cross-compiling Qt 5.15 for Raspberry Pi 4, which provides additional context and examples.
+  * [Cross-Compiling QT-5.15-For-RP4 (GitHub)](https://github.com/shekhuverma/Cross-Compiling-QT-5.15-For-RP4)
