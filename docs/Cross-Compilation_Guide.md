@@ -97,9 +97,6 @@ hostname -I
 - Checks for dependencies
 - Suggests a remote execution test
 
-### Troubleshooting
-- [Troubleshooting Guide](docs/troubleshooting.md)
-- [Technical Details](docs/Cross-Compilation_technical-details.md)
 
 ## Full Workflow Example
 
