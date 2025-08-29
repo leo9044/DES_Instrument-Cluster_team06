@@ -10,7 +10,7 @@ RPI_USER="team06"
 
 # 📁 Build Path Settings
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BUILD_DIR="$HOME/rpi-build"
+BUILD_DIR="$HOME/build"
 SYSROOT_DIR="$PROJECT_ROOT/sysroot"
 TOOLCHAIN_FILE="$PROJECT_ROOT/toolchain-rpi.cmake"
 
