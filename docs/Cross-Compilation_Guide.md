@@ -61,7 +61,8 @@ hostname -I
 
 ```bash
 # Cross-compile the Qt5 project
-./scripts/build_project.sh /path/to/your/qt5/project
+cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain/toolchain-rpi.cmake ..
+make -j$(nproc)
 ```
 
 **Example:**
