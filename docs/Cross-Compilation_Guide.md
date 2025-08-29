@@ -65,12 +65,6 @@ cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain/toolchain-rpi.cmake ..
 make -j$(nproc)
 ```
 
-**Example:**
-```bash
-# Specify the project folder containing CMakeLists.txt
-./scripts/build_project.sh /home/leo/MyQtApp
-```
-
 **What this step does:**
 - Configures CMake (using the toolchain file)
 - Overrides Qt5 IMPORTED_LOCATION
