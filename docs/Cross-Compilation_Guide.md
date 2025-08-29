@@ -33,8 +33,8 @@ nano scripts/config.sh
 **Items to edit:**
 ```bash
 # Raspberry Pi Connection Info (Required!)
-RPI_IP="192.168.1.100"   # Your actual Raspberry Pi IP
-RPI_USER="pi"            # Your actual username
+RPI_IP="192.168.86.38"   # Your actual Raspberry Pi IP
+RPI_USER="team06"        # Your actual username
 ```
 
 **How to find the IP address:**
@@ -62,10 +62,9 @@ hostname -I
 ```bash
 # Cross-compile the Qt5 project
 cd ~
-mkdir build
+mkdir -p build
 cd build
-cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain-rpi.cmake /home/leo/SEA-ME/DES_Instrument-Clu
-ster_team06/Design
+cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain-rpi.cmake /your/project/path
 make -j$(nproc)
 ```
 
@@ -77,25 +76,14 @@ make -j$(nproc)
 ### 5. Deploy to Raspberry Pi
 
 ```bash
-# Transfer and run the generated executable
-./scripts/deploy.sh your_app_name
-```
-
-**Example:**
-```bash
-# Deploy with the built executable name
-./scripts/deploy.sh MyQtApp
-
-# Deploy to a specific path
-./scripts/deploy.sh build/MyQtApp ~/apps/
+# Automatically find and transfer the ARM64 executable
+/home/leo/rpi/scripts/deploy.sh
 ```
 
 **What this step does:**
-- Transfers the executable to the Raspberry Pi via SCP
-- Sets execute permissions
-- Checks for dependencies
-- Suggests a remote execution test
-
+- Automatically finds ARM64 executable in build directory
+- Transfers to Raspberry Pi via SCP
+- Done!
 
 ## Full Workflow Example
 
@@ -105,21 +93,19 @@ make -j$(nproc)
 
 # 2. Edit config file
 nano scripts/config.sh
-# Change RPI_IP to "192.168.1.100"
+# Change RPI_IP to "192.168.86.38"
 
 # 3. Synchronize Sysroot  
 ./scripts/sync_sysroot.sh
 
 # 4. Build the project
-./scripts/build_project.sh /home/leo/MyQtApp
+cd ~/build
+cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain-rpi.cmake /your/project/path
+make -j$(nproc)
 
 # 5. Deploy
-./scripts/deploy.sh MyQtApp
-
-# 6. Monitor logs (in a separate terminal)
-./scripts/monitor.sh MyQtApp.log -f
+/home/leo/rpi/scripts/deploy.sh
 ```
-
 
 ## References
 
