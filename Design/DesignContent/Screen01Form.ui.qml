@@ -20,28 +20,27 @@ Rectangle {
 
     Connections {
         target: canInterface
-        // cm/s 값 하나만 받아서 speed 속성에 바로 반영
+        // Receive only cm/s value and directly reflect it to speed property
         onSpeedDataReceived: {
             speed = Math.round(speedCms);
         }
     }
 
-
-// --- Battery UI ---
+    // --- Battery UI ---
     Rectangle {
         id: battery_fill
         width: 70
         height: 116 * dbusReceiver.batteryPercentage / 100
         x: 1045
 
-        // [수정] y 좌표를 높이와 연동하여 동적으로 계산
-        // 이렇게 하면 막대의 아랫부분이 항상 y=261 위치에 고정됩니다.
+        // [Modified] Dynamically calculate y coordinate with height
+        // This keeps the bottom of the bar fixed at y=261
         y: 261 - height
 
         border.color: "#ffffff"
         z: battery_outline_icon.z
 
-        // [삭제] 이 속성은 더 이상 필요 없습니다.
+        // [Deleted] This property is no longer needed
         // anchors.bottomMargin: 15
 
         color: dbusReceiver.batteryPercentage <= 20 ? "#ff4444"
@@ -229,7 +228,7 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.bold: true
         readOnly: true
-        // speed 값을 그대로 문자열로 변환하여 표시
+        // Display speed value as string
         text: speed.toString()
     }
 
