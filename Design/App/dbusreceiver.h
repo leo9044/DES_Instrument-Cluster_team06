@@ -14,13 +14,13 @@ class DBusReceiver : public QObject
 public:
     explicit DBusReceiver(QObject *parent = nullptr);
 
-    // QML/main.cpp에서 초기 상태를 요청하는 함수
+    // Function to request initial status from QML/main.cpp
     Q_INVOKABLE void requestInitialStatus();
 
-    // 초기 기어값을 요청하는 함수
+    // Function to request initial gear value
     QString getGear();
 
-    // QML 프로퍼티를 위한 Getter 함수들
+    // Getter functions for QML properties
     QString gear() const { return m_gear; }
     int batteryPercentage() const { return m_batteryPercentage; }
     double current() const { return m_current; }
@@ -31,19 +31,19 @@ signals:
     void currentChanged();
 
 private slots:
-    // 기어 변경 신호를 처리하는 슬롯
+    // Slot to handle gear change signal
     void onGearChanged(const QString &newGear);
-    // [수정] 충전 상태 변경 신호를 처리하는 슬롯
+    // Slot to handle charging status change signal
     void onChargingStatusChanged(double newCurrent);
-    // [추가] 주기적인 배터리 잔량 신호를 처리하는 슬롯
+    // Slot to handle periodic battery percentage signal
     void onPercentageChanged(int newPercentage);
 
 private:
-    // D-Bus 인터페이스
+    // D-Bus interfaces
     QDBusInterface *vehicleIface;
     QDBusInterface *batteryIface;
 
-    // 멤버 변수
+    // Member variables
     QString m_gear;
     int m_batteryPercentage;
     double m_current;
