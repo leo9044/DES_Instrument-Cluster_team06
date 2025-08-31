@@ -43,7 +43,7 @@ class VehicleController:
         self.piracer.set_throttle_percent(throttle)
         self.piracer.set_steering_percent(steering)
 
-        # 기어 변경 처리
+        # Gear change handling
         previous_gear = self.gear
         if a:
             self.gear = "D"
@@ -69,9 +69,8 @@ class VehicleController:
         try:
             self.piracer.set_throttle_percent(0.0)
             self.piracer.set_steering_percent(0.0)
-            print("✅ Vehicle controller cleaned up")
-        except Exception as e:
-            print(f"❌ Error during vehicle controller cleanup: {e}")
+        except Exception:
+            pass
 
 
 class VehicleControllerService(dbus.service.Object):
@@ -84,7 +83,7 @@ class VehicleControllerService(dbus.service.Object):
     def GetGear(self):
         return self.controller.get_gear()
 
-    # --- 수정된 시그널 선언: signature='s' (string 인자) 명시 필수 ---
+    # Modified signal declaration: must specify signature='s' (string argument)
     @dbus.service.signal(INTERFACE, signature='s')
     def gearChanged(self, gear):
         pass
@@ -92,13 +91,11 @@ class VehicleControllerService(dbus.service.Object):
     def emit_gear_changed_if_needed(self):
         current_gear = self.controller.get_gear()
         if current_gear != self._last_gear:
-            self.gearChanged(current_gear)  # 시그널 호출 시 인자 전달
+            self.gearChanged(current_gear)  # Emit signal with argument
             self._last_gear = current_gear
 
 
 if __name__ == '__main__':
-    print("🚗 Vehicle Controller with DBus started")
-
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
     bus = dbus.SessionBus()
     name = dbus.service.BusName(BUS_NAME, bus)
@@ -111,11 +108,11 @@ if __name__ == '__main__':
     try:
         while True:
             controller.update_controls()
-            service.emit_gear_changed_if_needed()  # 기어 상태 변경 시 시그널 발행
+            service.emit_gear_changed_if_needed()  # Emit signal when gear changes
             while loop.get_context().pending():
                 loop.get_context().iteration(False)
             time.sleep(0.02)
     except KeyboardInterrupt:
-        print("\nStopping Vehicle Controller...")
+        pass
     finally:
         controller.cleanup()
