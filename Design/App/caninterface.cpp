@@ -8,17 +8,15 @@ CanInterface::CanInterface(QObject *parent)
     , m_isReceiving(false)
     , m_receiveTimer(new QTimer(this))
 {
-    // 속도 데이터 초기화
+    // Initialize speed data
     m_speedData.speedCms = 0.0f;
     m_speedData.rpm      = 0.0f;
     m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
 
-    // 타이머 설정 (10ms마다 CAN 메시지 체크)
+    // Timer setup (check CAN messages every 10 ms)
     m_receiveTimer->setSingleShot(false);
     m_receiveTimer->setInterval(10);
     connect(m_receiveTimer, &QTimer::timeout, this, &CanInterface::receiveCanMessages);
-
-    qDebug() << "CanInterface 초기화 완료";
 }
 
 CanInterface::~CanInterface()
@@ -33,14 +31,7 @@ bool CanInterface::setupCanInterface(const QString &interface)
     if (interface.startsWith("vcan")) {
         process.start("ip", QStringList() << "link" << "show" << interface);
         process.waitForFinished();
-
-        if (process.exitCode() == 0) {
-            qDebug() << "가상 CAN 인터페이스" << interface << "사용 가능";
-            return true;
-        } else {
-            qDebug() << "가상 CAN 인터페이스" << interface << "를 찾을 수 없음";
-            return false;
-        }
+        return process.exitCode() == 0;
     } else {
         process.start("sudo", QStringList() << "ip" << "link" << "set" << interface << "down");
         process.waitForFinished();
@@ -50,7 +41,7 @@ bool CanInterface::setupCanInterface(const QString &interface)
         process.waitForFinished();
 
         if (process.exitCode() != 0) {
-            QString error = QString("CAN bitrate 설정 실패: %1").arg(QString(process.readAllStandardError()));
+            QString error = QString("Failed to set CAN bitrate: %1").arg(QString(process.readAllStandardError()));
             emit canError(error);
             return false;
         }
@@ -59,20 +50,18 @@ bool CanInterface::setupCanInterface(const QString &interface)
         process.waitForFinished();
 
         if (process.exitCode() != 0) {
-            QString error = QString("CAN 인터페이스 활성화 실패: %1").arg(QString(process.readAllStandardError()));
+            QString error = QString("Failed to activate CAN interface: %1").arg(QString(process.readAllStandardError()));
             emit canError(error);
             return false;
         }
     }
 
-    qDebug() << "CAN 인터페이스" << interface << "설정 완료";
     return true;
 }
 
 bool CanInterface::connectToCan(const QString &interface)
 {
     if (m_isConnected) {
-        qDebug() << "이미 CAN에 연결되어 있음";
         return true;
     }
 
@@ -84,8 +73,7 @@ bool CanInterface::connectToCan(const QString &interface)
 
     m_canSocket = socket(PF_CAN, SOCK_RAW, CAN_RAW);
     if (m_canSocket < 0) {
-        QString error = "CAN 소켓 생성 실패";
-        qDebug() << error;
+        QString error = "Failed to create CAN socket";
         emit canError(error);
         return false;
     }
@@ -94,8 +82,7 @@ bool CanInterface::connectToCan(const QString &interface)
     strcpy(ifr.ifr_name, interface.toLocal8Bit().data());
 
     if (ioctl(m_canSocket, SIOCGIFINDEX, &ifr) < 0) {
-        QString error = "인터페이스 인덱스 가져오기 실패";
-        qDebug() << error;
+        QString error = "Failed to get interface index";
         emit canError(error);
         close(m_canSocket);
         m_canSocket = -1;
@@ -107,8 +94,7 @@ bool CanInterface::connectToCan(const QString &interface)
     addr.can_ifindex = ifr.ifr_ifindex;
 
     if (bind(m_canSocket, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
-        QString error = "CAN 소켓 바인딩 실패";
-        qDebug() << error;
+        QString error = "Failed to bind CAN socket";
         emit canError(error);
         close(m_canSocket);
         m_canSocket = -1;
@@ -116,7 +102,6 @@ bool CanInterface::connectToCan(const QString &interface)
     }
 
     m_isConnected = true;
-    qDebug() << "CAN 버스" << interface << "에 연결 완료";
     emit canConnected();
 
     return true;
@@ -133,7 +118,6 @@ void CanInterface::disconnectFromCan()
 
     if (m_isConnected) {
         m_isConnected = false;
-        qDebug() << "CAN 버스 연결 해제";
         emit canDisconnected();
     }
 }
@@ -146,7 +130,6 @@ bool CanInterface::isConnected() const
 void CanInterface::startReceiving()
 {
     if (!m_isConnected) {
-        qDebug() << "CAN에 연결되지 않음";
         return;
     }
 
@@ -156,7 +139,6 @@ void CanInterface::startReceiving()
 
     m_isReceiving = true;
     m_receiveTimer->start();
-    qDebug() << "CAN 메시지 수신 시작";
 }
 
 void CanInterface::stopReceiving()
@@ -164,7 +146,6 @@ void CanInterface::stopReceiving()
     if (m_isReceiving) {
         m_isReceiving = false;
         m_receiveTimer->stop();
-        qDebug() << "CAN 메시지 수신 중지";
     }
 }
 
@@ -205,13 +186,8 @@ void CanInterface::processCanMessage(const struct can_frame &frame)
             m_speedData.timestamp = QDateTime::currentMSecsSinceEpoch();
         }
 
-        // ==========================================================
-        // ===== [추가된 부분] 신호 발생 전/후 로그 출력 =====
-        // ==========================================================
-        qDebug() << ">>> [C++ STEP 1] Parsed speed:" << speedCms << "cm/s. Preparing to emit signal.";
+        // Emit signal with parsed speed data
         emit speedDataReceived(speedCms);
-        qDebug() << ">>> [C++ STEP 2] speedDataReceived signal has been emitted.";
-        // ==========================================================
     }
 }
 
@@ -223,7 +199,6 @@ float CanInterface::parseArduinoSpeedData(const uint8_t *data)
         float speedCms = int1_spd + (int2_spd / 100.0f);
         return qMax(0.0f, speedCms);
     } catch (...) {
-        qDebug() << "Arduino 속도 데이터 파싱 오류";
         return 0.0f;
     }
 }
@@ -243,7 +218,6 @@ float CanInterface::getCurrentRpm() const
 void CanInterface::sendTestSpeedData(float speedCms)
 {
     if (m_canSocket < 0) {
-        qDebug() << "CAN 소켓이 연결되지 않음";
         return;
     }
 
@@ -259,10 +233,5 @@ void CanInterface::sendTestSpeedData(float speedCms)
     frame.data[1] = int1_spd % 256;
     frame.data[2] = int2_spd;
 
-    ssize_t bytesWritten = write(m_canSocket, &frame, sizeof(frame));
-    if (bytesWritten != sizeof(frame)) {
-        qDebug() << "CAN 메시지 전송 실패";
-    } else {
-        qDebug() << QString("테스트 속도 데이터 전송: %1 cm/s").arg(speedCms);
-    }
+    write(m_canSocket, &frame, sizeof(frame));
 }
