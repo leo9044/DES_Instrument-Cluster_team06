@@ -8,7 +8,7 @@ QtObject {
     property string relativeFontDirectory: "fonts"
 
     readonly property font font: Qt.font({
-        family: "Arial", // Qt.application.font.family 은 Qt 5에서 지원 안 함
+        family: "Arial", 
         pixelSize: 20
     })
 
@@ -19,6 +19,4 @@ QtObject {
 
     readonly property color backgroundColor: "#EAEAEA"
 
-    // ❌ StudioApplication 제거
-    // property StudioApplication application: ...
 }
