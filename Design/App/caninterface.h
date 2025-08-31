@@ -5,28 +5,27 @@
 #include <QMutex>
 #include <QTimer>
 #include <QProcess>
-#include <QDebug>
 #include <QDateTime>
 
-// C++ 표준 라이브러리 및 시스템 헤더
+// C++ standard library and system headers
 #include <cstring>
 #include <unistd.h>
 
-// 시스템 관련 헤더 (소켓 프로그래밍)
+// System headers (socket programming)
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 #include <net/if.h>
 #include <linux/can.h>
 #include <linux/can/raw.h>
 
-// CAN ID 정의
+// CAN ID definition
 #define ARDUINO_SPEED_ID 0x0F6
 
-// 속도 데이터를 담는 구조체 (kmh 제거)
+// Structure for storing speed data (km/h removed)
 struct SpeedData {
-    float speedCms; // cm/s
-    float rpm;
-    qint64 timestamp;
+    float speedCms;   // speed in cm/s
+    float rpm;        // revolutions per minute
+    qint64 timestamp; // timestamp in ms
 };
 
 class CanInterface : public QObject
@@ -44,18 +43,18 @@ public:
     void startReceiving();
     void stopReceiving();
 
-    // Getter 함수 (kmh 제거)
+    // Getter functions (km/h removed)
     float getCurrentSpeedCms() const;
     float getCurrentRpm() const;
 
-    // 테스트용 함수
+    // Test function
     void sendTestSpeedData(float speedCms);
 
 signals:
     void canConnected();
     void canDisconnected();
     void canError(const QString &error);
-    // [수정] cm/s 값 하나만 보내는 신호로 최종 수정
+    // Emit only cm/s value
     void speedDataReceived(float speedCms);
 
 private slots:
