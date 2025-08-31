@@ -11,7 +11,7 @@ Rectangle {
     property int speed: 0
     property string gear: "P"
 
-    // ✅ 속도값 증가용 타이머 (자동 증가 테스트용)
+    // Timer for increasing speed (auto increment test)
     Timer {
         id: speedTimer
         interval: 50
@@ -22,8 +22,7 @@ Rectangle {
         }
     }
 
-    // ✅ 배터리 게이지
-
+    // Battery gauge
     Image {
         id: battery_white
         x: 1005
@@ -187,7 +186,7 @@ Rectangle {
         font.bold: true
         readOnly: true
 
-        // ✨ text 속성 바인딩을 명시적으로 설정
+        // Explicitly bind text property
         Binding {
             target: textInput3
             property: "text"
@@ -208,7 +207,7 @@ Rectangle {
         font.bold: true
         readOnly: true
 
-        // 기어 표시: 속도에 따라 변경되도록 계산
+        // Gear display changes depending on speed
         text: {
             if (speed <= 60)
                 return "P"
@@ -220,16 +219,17 @@ Rectangle {
                 return "D"
         }
     }
+
     Rectangle {
         id: batteryFill
         x: 1045
         y: 521
         width: 70
 
-        // 🟩🟧🟥 속도에 따라 배터리 색상 설정
-        // 0 ~ 80   → 빨강
-        // 81 ~ 160 → 주황
-        // 161~240  → 초록
+        // Battery color depending on speed
+        // 0 ~ 80   → red
+        // 81 ~ 160 → orange
+        // 161~240  → green
         color: {
             if (speed <= 80)
                 return "#ff4444"
@@ -239,11 +239,11 @@ Rectangle {
                 return "#57e389"
         }
 
-        // 🪫 배터리 게이지의 높이를 속도에 맞게 비례 조절
-        // 최대 높이: 150, 최대 속도: 240
+        // Adjust battery height proportional to speed
+        // Max height: 150, Max speed: 240
         height: 150 * speed / 240
 
-        // 🧲 배터리 외곽 이미지 하단에 고정
+        // Fix bottom of the battery to the bottom of the outline image
         anchors.bottom: battery_white.bottom
         anchors.bottomMargin: -246
         anchors.horizontalCenterOffset: 124
