@@ -66,7 +66,24 @@ hostname -I
 ```
 
 
-### 5. Build the Project
+### 5. Prepare Your Qt5 Project (If needed)
+
+**💡 CMakeLists.txt Setup:**
+- **Role**: Defines how to build your Qt5 project (source files, dependencies, linking)
+- **Location**: In your project source directory (where your main.cpp is located)
+- **Required before**: Step 6 (Build the Project)
+
+**Example minimal CMakeLists.txt:**
+```cmake
+cmake_minimum_required(VERSION 3.16)
+project(YourApp)
+
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets Qml Quick)
+add_executable(YourApp main.cpp)
+target_link_libraries(YourApp Qt5::Core Qt5::Widgets Qt5::Qml Qt5::Quick)
+
+
+### 6. Build the Project
 
 ```bash
 # Cross-compile the Qt5 project
@@ -82,7 +99,8 @@ make -j$(nproc)
 - Overrides Qt5 IMPORTED_LOCATION
 - Generates the ARM64 executable
 
-### 6. Deploy to Raspberry Pi
+
+### 7. Deploy to Raspberry Pi
 
 ```bash
 # Automatically find and transfer the ARM64 executable
@@ -110,12 +128,15 @@ nano scripts/config.sh
 # 4. Setup toolchain file
 ./scripts/create_toolchain.sh
 
-# 5. Build the project
+# 5. Prepare project (if needed)
+# Create CMakeLists.txt in your project directory
+
+# 6. Build the project
 cd ~/build
 cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain-rpi.cmake /your/project/path
 make -j$(nproc)
 
-# 6. Deploy
+# 7. Deploy
 /home/leo/rpi/scripts/deploy.sh
 ```
 
