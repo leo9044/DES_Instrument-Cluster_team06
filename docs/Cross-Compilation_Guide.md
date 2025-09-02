@@ -57,7 +57,16 @@ hostname -I
 
 **Estimated time:** 5-15 minutes (depends on network speed)
 
-### 4. Build the Project
+
+### 4. Setup Toolchain File
+
+```bash
+# Create CMake toolchain file for cross-compilation
+./scripts/create_toolchain.sh
+```
+
+
+### 5. Build the Project
 
 ```bash
 # Cross-compile the Qt5 project
@@ -73,7 +82,7 @@ make -j$(nproc)
 - Overrides Qt5 IMPORTED_LOCATION
 - Generates the ARM64 executable
 
-### 5. Deploy to Raspberry Pi
+### 6. Deploy to Raspberry Pi
 
 ```bash
 # Automatically find and transfer the ARM64 executable
@@ -98,14 +107,18 @@ nano scripts/config.sh
 # 3. Synchronize Sysroot  
 ./scripts/sync_sysroot.sh
 
-# 4. Build the project
+# 4. Setup toolchain file
+./scripts/create_toolchain.sh
+
+# 5. Build the project
 cd ~/build
 cmake -DCMAKE_TOOLCHAIN_FILE=/home/leo/rpi/toolchain-rpi.cmake /your/project/path
 make -j$(nproc)
 
-# 5. Deploy
+# 6. Deploy
 /home/leo/rpi/scripts/deploy.sh
 ```
+
 
 ## References
 
